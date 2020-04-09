@@ -13,15 +13,14 @@ npm install --save @ramonak/react-progress-bar
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from '@ramonak/react-progress-bar'
-import '@ramonak/react-progress-bar/dist/index.css'
+import ProgressBar from '@ramonak/react-progress-bar'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const Example = () => {
+    return (
+      <ProgressBar />
+    )
 }
 ```
 
