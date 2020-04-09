@@ -49,5 +49,11 @@
   },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "react",
+    "react-component",
+    "progress bar",
+    "progress-bar"
   ]
 }
