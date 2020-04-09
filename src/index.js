@@ -10,6 +10,7 @@ const ProgressBar = props => {
     width,
     margin,
     padding,
+    borderRadius,
     labelAlignment,
     labelColor,
     labelSize
@@ -29,7 +30,7 @@ const ProgressBar = props => {
 
   const containerStyles = {
     backgroundColor: baseBgColor,
-    borderRadius: 50,
+    borderRadius: borderRadius,
     padding: padding,
     width: width,
     margin: margin
@@ -68,6 +69,7 @@ ProgressBar.propTypes = {
   baseBgColor: PropTypes.string,
   height: PropTypes.string,
   width: PropTypes.string,
+  borderRadius: PropTypes.string,
   margin: PropTypes.string,
   padding: PropTypes.string,
   labelAlignment: PropTypes.oneOfType(["left", "center", "right"]),
@@ -79,6 +81,7 @@ ProgressBar.defaultProps = {
   bgcolor: "#6a1b9a",
   height: "20px",
   width: "100%",
+  borderRadius: "50px",
   labelAlignment: "right",
   baseBgColor: "#e0e0de",
   labelColor: "#fff",

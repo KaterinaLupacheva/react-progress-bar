@@ -38,6 +38,7 @@ const Example = () => {
 | `width` | `string` | `100%` | Width of the bar |
 | `margin` | `string` |  | Margin |
 | `padding` | `string` | | Padding |
+| `borderRadius` | `string` | `50px` | Border radius of the bar |
 | `baseBgColor` | `string` | `#e0e0de` | Color of the "non-completed" bar |
 | `labelAlignment` | `string: left, center, right` | `right`| Position of the label inside the completed bar |
 | `labelColor` | `string` | `#fff` | Color of the label text |
