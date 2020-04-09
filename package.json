@@ -5,6 +5,7 @@
   "author": "KaterinaLupacheva",
   "license": "MIT",
   "repository": "KaterinaLupacheva/react-progress-bar",
+  "homepage": "https://katerinalupacheva.github.io/react-progress-bar/",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",

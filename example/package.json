@@ -1,6 +1,6 @@
 {
   "name": "@ramonak/react-progress-bar-example",
-  "homepage": "https://KaterinaLupacheva.github.io/@ramonak/react-progress-bar",
+  "homepage": "https://KaterinaLupacheva.github.io/react-progress-bar",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
@@ -13,7 +13,9 @@
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
     "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
     "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
-    "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
+    "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -23,5 +25,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
 }
