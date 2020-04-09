@@ -4,6 +4,8 @@
 
 [![NPM](https://img.shields.io/npm/v/@ramonak/react-progress-bar.svg)](https://www.npmjs.com/package/@ramonak/react-progress-bar) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+![demo](https://i.ibb.co/Fgh0BsD/animated-demo.gif)
+
 ## Install
 
 ```bash
@@ -18,9 +20,7 @@ import React from 'react'
 import ProgressBar from '@ramonak/react-progress-bar'
 
 const Example = () => {
-    return (
-      <ProgressBar />
-    )
+    return <ProgressBar completed={60}/>
 }
 ```
 

@@ -72,7 +72,7 @@ ProgressBar.propTypes = {
   padding: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   labelAlignment: PropTypes.oneOfType(["left", "center", "right"]),
   labelColor: PropTypes.string,
-  labelSize: PropTypes.string,
+  labelSize: PropTypes.string
 };
 
 ProgressBar.defaultProps = {
