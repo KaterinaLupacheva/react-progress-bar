@@ -5,7 +5,17 @@ import ProgressBar from "@ramonak/react-progress-bar";
 
 const CustomizedBar = () => {
   const INITIAL_STATE = {
-    completed: 50
+    completed: 50,
+    bgcolor: "#6a1b9a",
+    height: "20px",
+    width: "100%",
+    borderRadius: "50px",
+    labelAlignment: "right",
+    baseBgColor: "#e0e0de",
+    labelColor: "#fff",
+    labelSize: "15px",
+    margin: '',
+    padding: ''
   };
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -17,10 +27,17 @@ const CustomizedBar = () => {
     });
   };
 
+  const handleColorChange = color => {
+    setState({
+        ...state,
+        bgcolor: color
+    })
+  }
+
   return (
     <>
-      <Parameters handleChange={handleChange} />
       <ProgressBar {...state} />
+      <Parameters handleChange={handleChange} handleBgChange={handleColorChange} />
     </>
   );
 };
