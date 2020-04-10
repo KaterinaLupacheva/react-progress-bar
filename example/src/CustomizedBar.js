@@ -14,8 +14,8 @@ const CustomizedBar = () => {
     baseBgColor: "#e0e0de",
     labelColor: "#fff",
     labelSize: "15px",
-    margin: '',
-    padding: ''
+    margin: "",
+    padding: ""
   };
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -23,21 +23,48 @@ const CustomizedBar = () => {
   const handleChange = event => {
     setState({
       ...state,
-      [event.target.name]: event.target.value
+      [event.target.name]:
+        event.target.name === "completed"
+          ? parseInt(event.target.value)
+          : event.target.value
     });
   };
 
-  const handleColorChange = color => {
+  const handleBgChange = color => {
     setState({
-        ...state,
-        bgcolor: color
-    })
-  }
+      ...state,
+      bgcolor: color
+    });
+  };
+
+  const handleBaseBgChange = color => {
+    setState({
+      ...state,
+      baseBgColor: color
+    });
+  };
+
+  const handleLabelColorChange = color => {
+    setState({
+      ...state,
+      labelColor: color
+    });
+  };
+
+  const handleReset = () => {
+    setState(INITIAL_STATE);
+  };
 
   return (
     <>
       <ProgressBar {...state} />
-      <Parameters handleChange={handleChange} handleBgChange={handleColorChange} />
+      <Parameters
+        handleChange={handleChange}
+        handleBgChange={handleBgChange}
+        handleBaseBgChange={handleBaseBgChange}
+        handleLabelColorChange={handleLabelColorChange}
+        handleReset={handleReset}
+      />
     </>
   );
 };
