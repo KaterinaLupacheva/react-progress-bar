@@ -1,0 +1,16 @@
+.code-area{
+   position: relative;
+
+    button{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    textarea {
+        width: 100%;
+        height: 300px;
+        margin: 0;
+        padding: 0;
+      }
+}

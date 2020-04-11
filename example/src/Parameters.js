@@ -7,8 +7,7 @@ const Parameters = ({
   handleChange,
   handleBgChange,
   handleBaseBgChange,
-  handleLabelColorChange,
-  handleReset
+  handleLabelColorChange
 }) => {
   const [barColor, setBarColor] = useState("#6a1b9a");
   const [baseBgColor, setBaseBgColor] = useState("#e0e0de");
@@ -188,7 +187,6 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <button onClick={handleReset}>RESET</button>
     </>
   );
 };
