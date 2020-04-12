@@ -139,6 +139,16 @@ const Parameters = ({
         />
       </div>
       <div className="param">
+        <label htmlFor="labelSize">label size</label>
+        <input
+          name="labelSize"
+          id="labelSize"
+          type="text"
+          placeholder="15px"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="param">
         <button onClick={() => cpTwo.setIsVisible(true)}>
           Chose "non-completed" Bar Color
         </button>
@@ -162,16 +172,6 @@ const Parameters = ({
             handleChange(event);
             setBaseBgColor(event.target.value);
           }}
-        />
-      </div>
-      <div className="param">
-        <label htmlFor="labelSize">label size</label>
-        <input
-          name="labelSize"
-          id="labelSize"
-          type="text"
-          placeholder="15px"
-          onChange={handleChange}
         />
       </div>
       <div className="param">

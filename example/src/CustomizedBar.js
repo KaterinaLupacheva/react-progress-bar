@@ -109,8 +109,8 @@ const CustomizedBar = () => {
         handleLabelColorChange={handleLabelColorChange}
         handleReset={handleReset}
       />
-      <button onClick={handleReset}>RESET</button>
-      <button onClick={generateCode}>Generate Component Code</button>
+      <button className="reset-button" onClick={handleReset}>RESET</button>
+      <button className="code-button" onClick={generateCode}>Generate Component Code</button>
       <div>
         {showCode && (
           <div className="code-area">
