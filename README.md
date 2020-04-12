@@ -10,6 +10,10 @@
 
 ---
 
+[Playground / Code Generator](https://katerinalupacheva.github.io/react-progress-bar/)
+
+---
+
 ## Install
 
 ```bash
