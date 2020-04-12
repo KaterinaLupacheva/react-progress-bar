@@ -69,6 +69,7 @@ const CustomizedBar = () => {
   };
 
   const generateCode = () => {
+    setCopySuccess("Copy");
     setShowCode(true);
     const tempCode = `<ProgressBar 
     completed={${state.completed}}
@@ -109,8 +110,12 @@ const CustomizedBar = () => {
         handleLabelColorChange={handleLabelColorChange}
         handleReset={handleReset}
       />
-      <button className="reset-button" onClick={handleReset}>RESET</button>
-      <button className="code-button" onClick={generateCode}>Generate Component Code</button>
+      <button className="reset-button" onClick={handleReset}>
+        RESET
+      </button>
+      <button className="code-button" onClick={generateCode}>
+        Generate Component Code
+      </button>
       <div>
         {showCode && (
           <div className="code-area">
