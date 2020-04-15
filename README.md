@@ -36,7 +36,7 @@ const Example = () => {
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `completed` (required) | `number between 0 and 100 or string. If string, it will be label and the bar will be fully completed` |  | Percentage of completed progress bar value |
+| `completed` (required) | `Number between 0 and 100 or string.` <br/> `If string, it will be label` <br/> `and the bar will be fully completed` |  | Percentage of completed progress bar value |
 | `bgcolor` | `string` | `#6a1b9a` | Color of the completed bar |
 | `height` | `string` | `20px` | Height of the bar |
 | `width` | `string` | `100%` | Width of the bar |
@@ -44,7 +44,7 @@ const Example = () => {
 | `padding` | `string` | | Padding |
 | `borderRadius` | `string` | `50px` | Border radius of the bar |
 | `baseBgColor` | `string` | `#e0e0de` | Color of the "non-completed" bar |
-| `labelAlignment` | `string: left, center, right` | `right`| Position of the label inside the completed bar |
+| `labelAlignment` | `string:` <br/> `left, center, right` | `right`| Position of the label inside the completed bar |
 | `labelColor` | `string` | `#fff` | Color of the label text |
 | `labelSize` | `string` | `15px`| Font-size of the label text |
 
