@@ -38,7 +38,7 @@ const ProgressBar = props => {
 
   const fillerStyles = {
     height: height,
-    width: `${completed}%`,
+    width: isNaN(completed) || completed > 100 ? `100%` : `${completed}%`,
     backgroundColor: bgcolor,
     transition: "width 1s ease-in-out",
     borderRadius: "inherit",
@@ -57,14 +57,17 @@ const ProgressBar = props => {
   return (
     <div style={containerStyles}>
       <div style={fillerStyles}>
-        <span style={labelStyles}>{`${completed}%`}</span>
+        <span style={labelStyles}>
+          {!isNaN(completed) ? `${completed}%` : `${completed}`}
+        </span>
       </div>
     </div>
   );
 };
 
 ProgressBar.propTypes = {
-  completed: PropTypes.number.isRequired,
+  completed: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   bgcolor: PropTypes.string,
   baseBgColor: PropTypes.string,
   height: PropTypes.string,

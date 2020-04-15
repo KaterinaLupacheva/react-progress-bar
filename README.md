@@ -36,7 +36,7 @@ const Example = () => {
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `completed` (required) | `number between 0 and 100` |  | Percentage of completed progress bar value |
+| `completed` (required) | `number between 0 and 100 or string. If string, it will be label and the bar will be fully completed` |  | Percentage of completed progress bar value |
 | `bgcolor` | `string` | `#6a1b9a` | Color of the completed bar |
 | `height` | `string` | `20px` | Height of the bar |
 | `width` | `string` | `100%` | Width of the bar |

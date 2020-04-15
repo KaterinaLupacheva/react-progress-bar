@@ -28,10 +28,7 @@ const CustomizedBar = () => {
   const handleChange = event => {
     setState({
       ...state,
-      [event.target.name]:
-        event.target.name === "completed"
-          ? parseInt(event.target.value)
-          : event.target.value
+      [event.target.name]: event.target.value
     });
   };
 

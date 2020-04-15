@@ -38,7 +38,7 @@ const Parameters = ({
         <input
           name="completed"
           id="completed"
-          type="number"
+          type="text"
           placeholder="1-100"
           onChange={handleChange}
         />
