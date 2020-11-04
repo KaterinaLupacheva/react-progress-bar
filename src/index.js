@@ -16,14 +16,12 @@ const ProgressBar = props => {
     labelSize
   } = props;
 
-  console.log(labelAlignment);
-
-  const getAlignment = labelAlignment => {
-    if (labelAlignment === "left") {
+  const getAlignment = alignmentOption => {
+    if (alignmentOption === "left") {
       return "flex-start";
-    } else if (labelAlignment === "center") {
+    } else if (alignmentOption === "center") {
       return "center";
-    } else if (labelAlignment === "right") {
+    } else if (alignmentOption === "right") {
       return "flex-end";
     }
   };
