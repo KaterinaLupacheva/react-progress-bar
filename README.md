@@ -44,7 +44,7 @@ const Example = () => {
 | `padding` | `string` | | Padding |
 | `borderRadius` | `string` | `50px` | Border radius of the bar |
 | `baseBgColor` | `string` | `#e0e0de` | Color of the "non-completed" bar |
-| `labelAlignment` | `string:` <br/> `left, center, right` | `right`| Position of the label inside the completed bar |
+| `labelAlignment` | `string:` <br/> `left, center, right, outside` | `right`| Position of the label inside the completed bar or outside bar |
 | `labelColor` | `string` | `#fff` | Color of the label text |
 | `labelSize` | `string` | `15px`| Font-size of the label text |
 
