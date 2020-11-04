@@ -16,6 +16,8 @@ const ProgressBar = props => {
     labelSize
   } = props;
 
+  console.log(labelAlignment);
+
   const getAlignment = labelAlignment => {
     if (labelAlignment === "left") {
       return "flex-start";
@@ -29,6 +31,7 @@ const ProgressBar = props => {
   const alignment = getAlignment(labelAlignment);
 
   const containerStyles = {
+    height: height,
     backgroundColor: baseBgColor,
     borderRadius: borderRadius,
     padding: padding,
@@ -44,23 +47,37 @@ const ProgressBar = props => {
     borderRadius: "inherit",
     display: "flex",
     alignItems: "center",
-    justifyContent: alignment
+    justifyContent: labelAlignment !== "outside" && alignment
   };
 
   const labelStyles = {
-    padding: 5,
+    padding: labelAlignment === "outside" ? "0 0 0 5px" : "0 5px 0 0",
     color: labelColor,
     fontWeight: "bold",
     fontSize: labelSize
   };
 
+  const outsideStyles = {
+    display: labelAlignment === "outside" && "flex",
+    alignItems: labelAlignment === "outside" && "center"
+  };
+
   return (
-    <div style={containerStyles}>
-      <div style={fillerStyles}>
+    <div style={outsideStyles}>
+      <div style={containerStyles}>
+        <div style={fillerStyles}>
+          {labelAlignment !== "outside" && (
+            <span style={labelStyles}>
+              {!isNaN(completed) ? `${completed}%` : `${completed}`}
+            </span>
+          )}
+        </div>
+      </div>
+      {labelAlignment === "outside" && (
         <span style={labelStyles}>
           {!isNaN(completed) ? `${completed}%` : `${completed}`}
         </span>
-      </div>
+      )}
     </div>
   );
 };
@@ -75,7 +92,7 @@ ProgressBar.propTypes = {
   borderRadius: PropTypes.string,
   margin: PropTypes.string,
   padding: PropTypes.string,
-  labelAlignment: PropTypes.oneOf(["left", "center", "right"]),
+  labelAlignment: PropTypes.oneOf(["left", "center", "right", "outside"]),
   labelColor: PropTypes.string,
   labelSize: PropTypes.string
 };

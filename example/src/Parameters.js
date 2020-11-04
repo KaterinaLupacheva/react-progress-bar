@@ -11,7 +11,7 @@ const Parameters = ({
 }) => {
   const [barColor, setBarColor] = useState("#6a1b9a");
   const [baseBgColor, setBaseBgColor] = useState("#e0e0de");
-  const [labelColor, setLabelColor] = useState("#fff");
+  const [labelColor, setLabelColor] = useState("#e80909");
   const cpOne = useClickOutside(false);
   const cpTwo = useClickOutside(false);
   const cpThree = useClickOutside(false);
@@ -45,7 +45,7 @@ const Parameters = ({
       </div>
       <div className="param">
         <button onClick={() => cpOne.setIsVisible(true)}>
-          Chose Bar Color
+          Choose Bar Color
         </button>
         {cpOne.isVisible && (
           <div
@@ -110,11 +110,12 @@ const Parameters = ({
           <option value="left">left</option>
           <option value="center">center</option>
           <option value="right">right</option>
+          <option value="outside">outside</option>
         </select>
       </div>
       <div className="param">
         <button onClick={() => cpThree.setIsVisible(true)}>
-          Chose Label Color
+          Choose Label Color
         </button>
         {cpThree.isVisible && (
           <div
@@ -150,7 +151,7 @@ const Parameters = ({
       </div>
       <div className="param">
         <button onClick={() => cpTwo.setIsVisible(true)}>
-          Chose "non-completed" Bar Color
+          Choose "non-completed" Bar Color
         </button>
         {cpTwo.isVisible && (
           <div

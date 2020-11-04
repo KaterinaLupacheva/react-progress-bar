@@ -13,7 +13,7 @@ const CustomizedBar = () => {
     borderRadius: "50px",
     labelAlignment: "right",
     baseBgColor: "#e0e0de",
-    labelColor: "#fff",
+    labelColor: "#e80909",
     labelSize: "15px",
     margin: "",
     padding: ""
