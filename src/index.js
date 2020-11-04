@@ -49,7 +49,7 @@ const ProgressBar = props => {
   };
 
   const labelStyles = {
-    padding: labelAlignment === "outside" ? "0 0 0 5px" : "0 5px 0 0",
+    padding: labelAlignment === "outside" ? "0 0 0 5px" : "5px",
     color: labelColor,
     fontWeight: "bold",
     fontSize: labelSize
