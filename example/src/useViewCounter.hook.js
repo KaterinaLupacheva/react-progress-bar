@@ -8,11 +8,14 @@ const useViewCounter = slug => {
       return;
     }
 
-    fetch(`http://localhost:3000/api/views/${slug}`, { mode: "no-cors" })
+    fetch(`http://localhost:3000/api/views/${slug}`, 
+    // { mode: "no-cors" }
+    )
       .then(res => res.json())
       .then(json => {
         setViews(json.views);
-      });
+      })
+      .catch(err => console.error(err));
   }, [slug]);
   return { views };
 };
