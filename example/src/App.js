@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
-import CustomizedBar from "./CustomizedBar";
-
-import ProgressBar from "@ramonak/react-progress-bar";
+import React from "react";
+import useViewCounter from "./useViewCounter.hook";
+import DemoApp from "./DemoApp";
 
 const App = () => {
-  const [completed, setCompleted] = useState(0);
-
-  useEffect(() => {
-    setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000);
-  }, []);
+  const getSlug = () => {
+    let slug = window.location.pathname;
+    if (slug.charAt(0) === "/") {
+      slug = slug.substring(1);
+    }
+    return slug;
+  };
+  useViewCounter(getSlug());
 
   return (
     <div className="App">
-      <h3>{"Randomly generated completed value"}</h3>
-      <ProgressBar completed={completed} />
-      <hr />
-      <h3>{"Interactive Generator"}</h3>
-      <CustomizedBar />
+      <DemoApp />
     </div>
   );
 };
