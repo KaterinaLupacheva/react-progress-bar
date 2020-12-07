@@ -8,7 +8,7 @@ const useViewCounter = slug => {
       return;
     }
 
-    fetch(`http://localhost:3000/api/views/${slug}`)
+    fetch(`http://localhost:3000/api/views/${slug}`, { mode: "no-cors" })
       .then(res => res.json())
       .then(json => {
         setViews(json.views);
