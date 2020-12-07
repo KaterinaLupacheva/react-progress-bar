@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
-const useViewCounter = ( slug ) => {
+import { useState, useEffect } from "react";
+const useViewCounter = slug => {
   const [views, setViews] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/views/${slug}`)
+    // Don't count views on localhost
+    if (process.env.NODE_ENV !== "production") {
+      return;
+    }
+
+    fetch(`https://my-projects-dashboard.vercel.app/api/views/${slug}`)
       .then(res => res.json())
       .then(json => {
         setViews(json.views);
