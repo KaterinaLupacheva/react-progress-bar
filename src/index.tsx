@@ -2,7 +2,7 @@ import * as React from "react";
 import * as PropTypes from "prop-types";
 
 export type ProgressBarProps = {
-  completed: number;
+  completed: number | string;
   bgcolor?: string;
   baseBgColor?: string;
   height?: string;
@@ -55,7 +55,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   const fillerStyles: React.CSSProperties = {
     height: height,
-    width: completed > 100 ? `100%` : `${completed}%`,
+    width:
+      typeof completed === "string" || completed > 100
+        ? `100%`
+        : `${completed}%`,
     backgroundColor: bgcolor,
     transition: "width 1s ease-in-out",
     borderRadius: "inherit",
@@ -82,19 +85,24 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       <div style={containerStyles}>
         <div style={fillerStyles}>
           {labelAlignment !== "outside" && (
-            <span style={labelStyles}>{`${completed}%`}</span>
+            <span style={labelStyles}>
+              {typeof completed === "number" ? `${completed}%` : `${completed}`}
+            </span>
           )}
         </div>
       </div>
       {labelAlignment === "outside" && (
-        <span style={labelStyles}>{`${completed}%`}</span>
+        <span style={labelStyles}>
+          {typeof completed === "number" ? `${completed}%` : `${completed}`}
+        </span>
       )}
     </div>
   );
 };
 
 ProgressBar.propTypes = {
-  completed: PropTypes.number.isRequired,
+  completed: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   bgcolor: PropTypes.string,
   baseBgColor: PropTypes.string,
   height: PropTypes.string,
