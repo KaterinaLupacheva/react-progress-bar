@@ -1,5 +1,10 @@
+# REact-progress-bar Demo App
+
 This example was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-It is linked to the @ramonak/react-progress-bar package in the parent directory for development purposes.
+## To run locally
 
-You can run `npm install` and then `npm start` to test your package.
+1. Clone this repo
+2. Go to **example** folder.
+3. Run ```npm install```
+4. Run ```npm start```

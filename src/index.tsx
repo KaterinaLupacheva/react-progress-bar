@@ -1,63 +1,83 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
+import * as PropTypes from "prop-types";
 
-const ProgressBar = props => {
-  const {
-    bgcolor,
-    completed,
-    baseBgColor,
-    height,
-    width,
-    margin,
-    padding,
-    borderRadius,
-    labelAlignment,
-    labelColor,
-    labelSize
-  } = props;
+export type ProgressBarProps = {
+  completed: string | number;
+  bgcolor?: string;
+  baseBgColor?: string;
+  height?: string;
+  width?: string;
+  borderRadius?: string;
+  margin?: string;
+  padding?: string;
+  labelAlignment?: "left" | "center" | "right" | "outside";
+  labelColor?: string;
+  labelSize?: string;
+};
 
-  const getAlignment = alignmentOption => {
+const ProgressBar: React.FC<ProgressBarProps> = ({
+  bgcolor,
+  completed,
+  baseBgColor,
+  height,
+  width,
+  margin,
+  padding,
+  borderRadius,
+  labelAlignment,
+  labelColor,
+  labelSize,
+}) => {
+  const getAlignment = (
+    alignmentOption: ProgressBarProps["labelAlignment"]
+  ) => {
     if (alignmentOption === "left") {
       return "flex-start";
     } else if (alignmentOption === "center") {
       return "center";
     } else if (alignmentOption === "right") {
       return "flex-end";
+    } else {
+      return null;
     }
   };
 
   const alignment = getAlignment(labelAlignment);
 
-  const containerStyles = {
+  const containerStyles: React.CSSProperties = {
     height: height,
     backgroundColor: baseBgColor,
     borderRadius: borderRadius,
     padding: padding,
     width: width,
-    margin: margin
+    margin: margin,
   };
 
-  const fillerStyles = {
+  const fillerStyles: React.CSSProperties = {
     height: height,
-    width: isNaN(completed) || completed > 100 ? `100%` : `${completed}%`,
+    width:
+      typeof completed === "string" || completed > 100
+        ? `100%`
+        : `${completed}%`,
     backgroundColor: bgcolor,
     transition: "width 1s ease-in-out",
     borderRadius: "inherit",
     display: "flex",
     alignItems: "center",
-    justifyContent: labelAlignment !== "outside" && alignment
+    justifyContent:
+      labelAlignment !== "outside" && alignment ? alignment : "normal",
   };
 
-  const labelStyles = {
+  const labelStyles: React.CSSProperties = {
     padding: labelAlignment === "outside" ? "0 0 0 5px" : "5px",
     color: labelColor,
     fontWeight: "bold",
-    fontSize: labelSize
+    fontSize: labelSize,
   };
 
   const outsideStyles = {
-    display: labelAlignment === "outside" && "flex",
-    alignItems: labelAlignment === "outside" && "center"
+    display: labelAlignment === "outside" ? "flex" : "initial",
+    alignItems: labelAlignment === "outside" ? "center" : "initial",
   };
 
   return (
@@ -66,14 +86,14 @@ const ProgressBar = props => {
         <div style={fillerStyles}>
           {labelAlignment !== "outside" && (
             <span style={labelStyles}>
-              {!isNaN(completed) ? `${completed}%` : `${completed}`}
+              {typeof completed === "number" ? `${completed}%` : `${completed}`}
             </span>
           )}
         </div>
       </div>
       {labelAlignment === "outside" && (
         <span style={labelStyles}>
-          {!isNaN(completed) ? `${completed}%` : `${completed}`}
+          {typeof completed === "number" ? `${completed}%` : `${completed}`}
         </span>
       )}
     </div>
@@ -92,7 +112,7 @@ ProgressBar.propTypes = {
   padding: PropTypes.string,
   labelAlignment: PropTypes.oneOf(["left", "center", "right", "outside"]),
   labelColor: PropTypes.string,
-  labelSize: PropTypes.string
+  labelSize: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
@@ -103,7 +123,7 @@ ProgressBar.defaultProps = {
   labelAlignment: "right",
   baseBgColor: "#e0e0de",
   labelColor: "#fff",
-  labelSize: "15px"
+  labelSize: "15px",
 };
 
 export default ProgressBar;
