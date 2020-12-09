@@ -1,0 +1,30 @@
+{
+  "name": "react-progress-bar",
+  "version": "1.0.0",
+  "description": "> Progress Bar React Component",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaterinaLupacheva/react-progress-bar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaterinaLupacheva/react-progress-bar/issues"
+  },
+  "homepage": "https://github.com/KaterinaLupacheva/react-progress-bar#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "typescript": "^4.1.2"
+  }
+}
