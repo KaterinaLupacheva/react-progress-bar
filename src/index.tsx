@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as PropTypes from "prop-types";
 
 export type ProgressBarProps = {
   completed: number;
@@ -90,6 +91,20 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       )}
     </div>
   );
+};
+
+ProgressBar.propTypes = {
+  completed: PropTypes.number.isRequired,
+  bgcolor: PropTypes.string,
+  baseBgColor: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  borderRadius: PropTypes.string,
+  margin: PropTypes.string,
+  padding: PropTypes.string,
+  labelAlignment: PropTypes.oneOf(["left", "center", "right", "outside"]),
+  labelColor: PropTypes.string,
+  labelSize: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
