@@ -1,22 +1,27 @@
-import React from "react";
-import useViewCounter from "./useViewCounter.hook";
-import DemoApp from "./DemoApp";
+import logo from './logo.svg';
+import './App.css';
+import ProgressBar from "react-progress-bar"
 
-const App = () => {
-  const getSlug = () => {
-    let slug = window.location.pathname;
-    if (slug.charAt(0) === "/") {
-      slug = slug.substring(1);
-    }
-    return slug;
-  };
-  useViewCounter(getSlug());
-
+function App() {
   return (
     <div className="App">
-      <DemoApp />
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+      <ProgressBar completed={20}/>
     </div>
   );
-};
+}
 
 export default App;
