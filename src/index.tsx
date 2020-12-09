@@ -2,7 +2,7 @@ import * as React from "react";
 import * as PropTypes from "prop-types";
 
 export type ProgressBarProps = {
-  completed: number | string;
+  completed: string | number;
   bgcolor?: string;
   baseBgColor?: string;
   height?: string;
