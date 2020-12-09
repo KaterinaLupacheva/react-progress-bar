@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 export type ProgressBarProps = {
   completed: number;
@@ -14,21 +14,19 @@ export type ProgressBarProps = {
   labelSize?: string;
 };
 
-const ProgressBar: React.FC<ProgressBarProps> = (props) => {
-  const {
-    bgcolor,
-    completed,
-    baseBgColor,
-    height,
-    width,
-    margin,
-    padding,
-    borderRadius,
-    labelAlignment,
-    labelColor,
-    labelSize,
-  } = props;
-
+const ProgressBar: React.FC<ProgressBarProps> = ({
+  bgcolor,
+  completed,
+  baseBgColor,
+  height,
+  width,
+  margin,
+  padding,
+  borderRadius,
+  labelAlignment,
+  labelColor,
+  labelSize,
+}) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
   ) => {
@@ -38,6 +36,8 @@ const ProgressBar: React.FC<ProgressBarProps> = (props) => {
       return "center";
     } else if (alignmentOption === "right") {
       return "flex-end";
+    } else {
+      return null;
     }
   };
 
@@ -60,7 +60,8 @@ const ProgressBar: React.FC<ProgressBarProps> = (props) => {
     borderRadius: "inherit",
     display: "flex",
     alignItems: "center",
-    justifyContent: labelAlignment !== "outside" && alignment,
+    justifyContent:
+      labelAlignment !== "outside" && alignment ? alignment : "normal",
   };
 
   const labelStyles: React.CSSProperties = {
@@ -71,8 +72,8 @@ const ProgressBar: React.FC<ProgressBarProps> = (props) => {
   };
 
   const outsideStyles = {
-    display: labelAlignment === "outside" && "flex",
-    alignItems: labelAlignment === "outside" && "center",
+    display: labelAlignment === "outside" ? "flex" : "initial",
+    alignItems: labelAlignment === "outside" ? "center" : "initial",
   };
 
   return (
