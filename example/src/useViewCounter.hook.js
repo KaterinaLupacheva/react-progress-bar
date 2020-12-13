@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-const useViewCounter = slug => {
+const useViewCounter = (slug) => {
   const [views, setViews] = useState(null);
 
   useEffect(() => {
@@ -8,13 +8,14 @@ const useViewCounter = slug => {
       return;
     }
 
-    fetch(`https://my-projects-dashboard.vercel.app/api/views/${slug}`, { mode: "no-cors" })
-      .then(res => res.json())
-      .then(json => {
-        setViews(json.views);
+    fetch(`https://my-projects-dashboard.vercel.app/api/views/${slug}`, {
+      mode: "no-cors",
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        setViews(json.totalViews);
       })
-      .catch(err => console.error(err.message));
-
+      .catch((err) => console.error(err.message));
   }, [slug]);
   return { views };
 };
