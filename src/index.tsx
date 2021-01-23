@@ -13,6 +13,7 @@ export type ProgressBarProps = {
   labelAlignment?: "left" | "center" | "right" | "outside";
   labelColor?: string;
   labelSize?: string;
+  isLabelVisible?: boolean;
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -27,6 +28,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   labelAlignment,
   labelColor,
   labelSize,
+  isLabelVisible,
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -73,6 +75,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     color: labelColor,
     fontWeight: "bold",
     fontSize: labelSize,
+    display: !isLabelVisible ? "none" : "initial",
   };
 
   const outsideStyles = {
@@ -113,6 +116,7 @@ ProgressBar.propTypes = {
   labelAlignment: PropTypes.oneOf(["left", "center", "right", "outside"]),
   labelColor: PropTypes.string,
   labelSize: PropTypes.string,
+  isLabelVisible: PropTypes.bool,
 };
 
 ProgressBar.defaultProps = {
@@ -124,6 +128,7 @@ ProgressBar.defaultProps = {
   baseBgColor: "#e0e0de",
   labelColor: "#fff",
   labelSize: "15px",
+  isLabelVisible: true,
 };
 
 export default ProgressBar;
