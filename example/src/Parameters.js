@@ -7,7 +7,7 @@ const Parameters = ({
   handleChange,
   handleBgChange,
   handleBaseBgChange,
-  handleLabelColorChange
+  handleLabelColorChange,
 }) => {
   const [barColor, setBarColor] = useState("#6a1b9a");
   const [baseBgColor, setBaseBgColor] = useState("#e0e0de");
@@ -16,17 +16,17 @@ const Parameters = ({
   const cpTwo = useClickOutside(false);
   const cpThree = useClickOutside(false);
 
-  const handleColorChangeCpOne = color => {
+  const handleColorChangeCpOne = (color) => {
     setBarColor(color.hex);
     handleBgChange(color.hex);
   };
 
-  const handleColorChangeCpTwo = color => {
+  const handleColorChangeCpTwo = (color) => {
     setBaseBgColor(color.hex);
     handleBaseBgChange(color.hex);
   };
 
-  const handleColorChangeCpThree = color => {
+  const handleColorChangeCpThree = (color) => {
     setLabelColor(color.hex);
     handleLabelColorChange(color.hex);
   };
@@ -63,7 +63,7 @@ const Parameters = ({
           value={barColor}
           name="bgcolor"
           type="text"
-          onChange={event => {
+          onChange={(event) => {
             handleChange(event);
             setBarColor(event.target.value);
           }}
@@ -133,7 +133,7 @@ const Parameters = ({
           value={labelColor}
           name="labelColor"
           type="text"
-          onChange={event => {
+          onChange={(event) => {
             handleChange(event);
             setBaseBgColor(event.target.value);
           }}
@@ -148,6 +148,18 @@ const Parameters = ({
           placeholder="15px"
           onChange={handleChange}
         />
+      </div>
+      <div className="param">
+        <label htmlFor="isLabelVisible">is label visible</label>
+        <select
+          name="isLabelVisible"
+          defaultValue="true"
+          id="isLabelVisible"
+          onChange={handleChange}
+        >
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
       </div>
       <div className="param">
         <button onClick={() => cpTwo.setIsVisible(true)}>
@@ -169,7 +181,7 @@ const Parameters = ({
           value={baseBgColor}
           name="baseBgColor"
           type="text"
-          onChange={event => {
+          onChange={(event) => {
             handleChange(event);
             setBaseBgColor(event.target.value);
           }}

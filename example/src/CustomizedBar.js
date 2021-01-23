@@ -16,7 +16,8 @@ const CustomizedBar = () => {
     labelColor: "#e80909",
     labelSize: "15px",
     margin: "",
-    padding: ""
+    padding: "",
+    isLabelVisible: true
   };
 
   const [state, setState] = useState(INITIAL_STATE);
