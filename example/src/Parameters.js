@@ -8,6 +8,7 @@ const Parameters = ({
   handleBgChange,
   handleBaseBgChange,
   handleLabelColorChange,
+  handleIsLabelVisibleChange,
 }) => {
   const [barColor, setBarColor] = useState("#6a1b9a");
   const [baseBgColor, setBaseBgColor] = useState("#e0e0de");
@@ -155,10 +156,10 @@ const Parameters = ({
           name="isLabelVisible"
           defaultValue="true"
           id="isLabelVisible"
-          onChange={handleChange}
+          onChange={handleIsLabelVisibleChange}
         >
-          <option value="true">True</option>
-          <option value="false">False</option>
+          <option value={true}>True</option>
+          <option value={false}>False</option>
         </select>
       </div>
       <div className="param">
