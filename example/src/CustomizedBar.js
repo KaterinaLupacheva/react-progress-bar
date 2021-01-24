@@ -16,7 +16,8 @@ const CustomizedBar = () => {
     labelColor: "#e80909",
     labelSize: "15px",
     margin: "",
-    padding: ""
+    padding: "",
+    isLabelVisible: true
   };
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -58,6 +59,13 @@ const CustomizedBar = () => {
     setShowCode(false);
   };
 
+  const handleIsLabelVisibleChange = value => {
+    setState({
+      ...state,
+      isLabelVisible: value === 'true'
+    })
+  }
+
   const copyToClipboard = e => {
     textAreaRef.current.select();
     document.execCommand("copy");
@@ -83,6 +91,7 @@ const CustomizedBar = () => {
         ? ""
         : `labelAlignment="${state.labelAlignment}"`
     }
+    ${state.isLabelVisible ? '' : `isLabelVisible={false}`}
     ${
       state.baseBgColor === "#e0e0de"
         ? ""
@@ -105,6 +114,7 @@ const CustomizedBar = () => {
         handleBgChange={handleBgChange}
         handleBaseBgChange={handleBaseBgChange}
         handleLabelColorChange={handleLabelColorChange}
+        handleIsLabelVisibleChange={handleIsLabelVisibleChange}
         handleReset={handleReset}
       />
       <button className="reset-button" onClick={handleReset}>
