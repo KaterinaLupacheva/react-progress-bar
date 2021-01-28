@@ -47,7 +47,7 @@ const Example = () => {
 | `labelAlignment`       | `string:` <br/> `left, center, right, outside` | `right`   | Position of the label inside the completed bar or outside bar                                                               |
 | `labelColor`           | `string`                                       | `#fff`    | Color of the label text                                                                                                     |
 | `labelSize`            | `string`                                       | `15px`    | Font-size of the label text                                                                                                 |
-| `isLableVisible`       | `boolean`                                      | `true`    | Visibility of the lable                                                                                                     |
+| `isLabelVisible`       | `boolean`                                      | `true`    | Visibility of the label                                                                                                     |
 
 ## License
 
