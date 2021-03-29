@@ -15,7 +15,12 @@ export type ProgressBarProps = {
   labelSize?: string;
   isLabelVisible?: boolean;
   transitionDuration?: string;
-  transitionTimingFunction?: "ease" | "linear" | "ease-in" | "ease-out" | "ease-in-out";
+  transitionTimingFunction?:
+    | "ease"
+    | "linear"
+    | "ease-in"
+    | "ease-out"
+    | "ease-in-out";
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -61,12 +66,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   const fillerStyles: React.CSSProperties = {
     height: height,
-    width:
-      typeof completed === "string" || completed > 100
-        ? `100%`
-        : `${completed}%`,
+    width: Number(completed) > 100 ? `100%` : `${Number(completed)}%`,
     backgroundColor: bgcolor,
-    transition: `width ${transitionDuration || "1s"} ${transitionTimingFunction || "ease-in-out"}`,
+    transition: `width ${transitionDuration || "1s"} ${
+      transitionTimingFunction || "ease-in-out"
+    }`,
     borderRadius: "inherit",
     display: "flex",
     alignItems: "center",
