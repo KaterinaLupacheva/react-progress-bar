@@ -14,6 +14,8 @@ export type ProgressBarProps = {
   labelColor?: string;
   labelSize?: string;
   isLabelVisible?: boolean;
+  transitionDuration?: string;
+  transitionTimingFunction?: "ease" | "linear" | "ease-in" | "ease-out" | "ease-in-out";
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -29,6 +31,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   labelColor,
   labelSize,
   isLabelVisible,
+  transitionDuration,
+  transitionTimingFunction,
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -62,7 +66,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         ? `100%`
         : `${completed}%`,
     backgroundColor: bgcolor,
-    transition: "width 1s ease-in-out",
+    transition: `width ${transitionDuration || "1s"} ${transitionTimingFunction || "ease-in-out"}`,
     borderRadius: "inherit",
     display: "flex",
     alignItems: "center",
