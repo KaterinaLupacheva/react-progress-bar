@@ -201,6 +201,32 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
+      <div className="param">
+        <label htmlFor="transitionDuration">transition duration</label>
+        <input
+          name="transitionDuration"
+          id="transitionDuration"
+          type="text"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="param">
+        <label htmlFor="transitionTimingFunction">
+          transition timing function
+        </label>
+        <select
+          name="transitionTimingFunction"
+          defaultValue="right"
+          id="transitionTimingFunction"
+          onChange={handleChange}
+        >
+          <option value="ease-in-out">ease-in-out</option>
+          <option value="ease">ease</option>
+          <option value="linear">linear</option>
+          <option value="ease-in">ease-in</option>
+          <option value="ease-out">ease-out</option>
+        </select>
+      </div>
     </>
   );
 };

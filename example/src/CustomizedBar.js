@@ -17,7 +17,9 @@ const CustomizedBar = () => {
     labelSize: "15px",
     margin: "",
     padding: "",
-    isLabelVisible: true
+    isLabelVisible: true,
+    transitionDuration: "1s",
+    transitionTimingFunction: "ease-in-out",
   };
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -26,31 +28,33 @@ const CustomizedBar = () => {
   const [copySuccess, setCopySuccess] = useState("Copy");
   const textAreaRef = useRef(null);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
+    console.log(event.target.name);
+    console.log(event.target.value);
     setState({
       ...state,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
-  const handleBgChange = color => {
+  const handleBgChange = (color) => {
     setState({
       ...state,
-      bgcolor: color
+      bgcolor: color,
     });
   };
 
-  const handleBaseBgChange = color => {
+  const handleBaseBgChange = (color) => {
     setState({
       ...state,
-      baseBgColor: color
+      baseBgColor: color,
     });
   };
 
-  const handleLabelColorChange = color => {
+  const handleLabelColorChange = (color) => {
     setState({
       ...state,
-      labelColor: color
+      labelColor: color,
     });
   };
 
@@ -59,14 +63,14 @@ const CustomizedBar = () => {
     setShowCode(false);
   };
 
-  const handleIsLabelVisibleChange = value => {
+  const handleIsLabelVisibleChange = (value) => {
     setState({
       ...state,
-      isLabelVisible: value === 'true'
-    })
-  }
+      isLabelVisible: value === "true",
+    });
+  };
 
-  const copyToClipboard = e => {
+  const copyToClipboard = (e) => {
     textAreaRef.current.select();
     document.execCommand("copy");
     e.target.focus();
@@ -91,7 +95,7 @@ const CustomizedBar = () => {
         ? ""
         : `labelAlignment="${state.labelAlignment}"`
     }
-    ${state.isLabelVisible ? '' : `isLabelVisible={false}`}
+    ${state.isLabelVisible ? "" : `isLabelVisible={false}`}
     ${
       state.baseBgColor === "#e0e0de"
         ? ""
@@ -101,6 +105,16 @@ const CustomizedBar = () => {
     ${state.labelSize === "15px" ? "" : `labelSize="${state.labelSize}"`}
     ${state.margin === "" ? "" : `margin="${state.margin}"`}
     ${state.padding === "" ? "" : `padding="${state.padding}"`}
+    ${
+      state.transitionDuration === "1s"
+        ? ""
+        : `transitionDuration="${state.transitionDuration}"`
+    }
+    ${
+      state.transitionTimingFunction === "ease-in-out"
+        ? ""
+        : `transitionTimingFunction="${state.transitionTimingFunction}"`
+    }
     />`;
     const code = tempCode.replace(/^\s*$(?:\r\n?|\n)/gm, "");
     setCodeValue(code);
@@ -130,7 +144,7 @@ const CustomizedBar = () => {
             <textarea
               ref={textAreaRef}
               value={codeValue}
-              onChange={e => setCodeValue(e.target.value)}
+              onChange={(e) => setCodeValue(e.target.value)}
             />
           </div>
         )}
