@@ -29,8 +29,6 @@ const CustomizedBar = () => {
   const textAreaRef = useRef(null);
 
   const handleChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.value);
     setState({
       ...state,
       [event.target.name]: event.target.value,
