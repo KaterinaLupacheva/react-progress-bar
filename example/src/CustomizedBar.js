@@ -7,7 +7,7 @@ import "./customizedBar.styles.scss";
 const CustomizedBar = () => {
   const INITIAL_STATE = {
     completed: 50,
-    bgcolor: "#6a1b9a",
+    bgColor: "#6a1b9a",
     height: "20px",
     width: "100%",
     borderRadius: "50px",
@@ -38,7 +38,7 @@ const CustomizedBar = () => {
   const handleBgChange = (color) => {
     setState({
       ...state,
-      bgcolor: color,
+      bgColor: color,
     });
   };
 
@@ -80,7 +80,7 @@ const CustomizedBar = () => {
     setShowCode(true);
     const tempCode = `<ProgressBar 
     completed={${state.completed}}
-    ${state.bgcolor === "#6a1b9a" ? "" : `bgcolor="${state.bgcolor}"`}
+    ${state.bgColor === "#6a1b9a" ? "" : `bgColor="${state.bgColor}"`}
     ${state.height === "20px" ? "" : `height="${state.height}"`}
     ${state.width === "100%" ? "" : `width="${state.width}"`}
     ${
