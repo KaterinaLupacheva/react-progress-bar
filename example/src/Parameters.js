@@ -62,7 +62,7 @@ const Parameters = ({
         )}
         <input
           value={barColor}
-          name="bgcolor"
+          name="bgColor"
           type="text"
           onChange={(event) => {
             handleChange(event);
