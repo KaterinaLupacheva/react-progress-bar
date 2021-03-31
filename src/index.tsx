@@ -3,7 +3,7 @@ import * as PropTypes from "prop-types";
 
 export type ProgressBarProps = {
   completed: string | number;
-  bgcolor?: string;
+  bgColor?: string;
   baseBgColor?: string;
   height?: string;
   width?: string;
@@ -24,7 +24,7 @@ export type ProgressBarProps = {
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
-  bgcolor,
+  bgColor,
   completed,
   baseBgColor,
   height,
@@ -67,7 +67,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const fillerStyles: React.CSSProperties = {
     height: height,
     width: Number(completed) > 100 ? `100%` : `${Number(completed)}%`,
-    backgroundColor: bgcolor,
+    backgroundColor: bgColor,
     transition: `width ${transitionDuration || "1s"} ${
       transitionTimingFunction || "ease-in-out"
     }`,
@@ -114,7 +114,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 ProgressBar.propTypes = {
   completed: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
-  bgcolor: PropTypes.string,
+  bgColor: PropTypes.string,
   baseBgColor: PropTypes.string,
   height: PropTypes.string,
   width: PropTypes.string,
@@ -128,7 +128,7 @@ ProgressBar.propTypes = {
 };
 
 ProgressBar.defaultProps = {
-  bgcolor: "#6a1b9a",
+  bgColor: "#6a1b9a",
   height: "20px",
   width: "100%",
   borderRadius: "50px",
