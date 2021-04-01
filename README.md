@@ -2,7 +2,11 @@
 
 > Progress Bar React Component (build with Typescript)
 
-[![NPM](https://img.shields.io/npm/v/@ramonak/react-progress-bar.svg)](https://www.npmjs.com/package/@ramonak/react-progress-bar) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)![npm bundle size](https://img.shields.io/bundlephobia/min/@ramonak/react-progress-bar)![GitHub](https://img.shields.io/github/license/katerinalupacheva/react-progress-bar)![npm](https://img.shields.io/npm/dw/@ramonak/react-progress-bar)
+[![NPM](https://img.shields.io/npm/v/@ramonak/react-progress-bar.svg)](https://www.npmjs.com/package/@ramonak/react-progress-bar) 
+[![TS-Standard - Typescript Standard Style Guide](https://badgen.net/badge/code%20style/ts-standard/blue?icon=typescript)](https://github.com/standard/ts-standard)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@ramonak/react-progress-bar)
+![GitHub](https://img.shields.io/github/license/katerinalupacheva/react-progress-bar)
+![npm](https://img.shields.io/npm/dw/@ramonak/react-progress-bar)
 
 ---
 

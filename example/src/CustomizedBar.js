@@ -1,122 +1,122 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from 'react'
 
-import Parameters from "./Parameters";
-import ProgressBar from "@ramonak/react-progress-bar";
-import "./customizedBar.styles.scss";
+import Parameters from './Parameters'
+import ProgressBar from '@ramonak/react-progress-bar'
+import './customizedBar.styles.scss'
 
 const CustomizedBar = () => {
   const INITIAL_STATE = {
     completed: 50,
-    bgColor: "#6a1b9a",
-    height: "20px",
-    width: "100%",
-    borderRadius: "50px",
-    labelAlignment: "right",
-    baseBgColor: "#e0e0de",
-    labelColor: "#e80909",
-    labelSize: "15px",
-    margin: "",
-    padding: "",
+    bgColor: '#6a1b9a',
+    height: '20px',
+    width: '100%',
+    borderRadius: '50px',
+    labelAlignment: 'right',
+    baseBgColor: '#e0e0de',
+    labelColor: '#e80909',
+    labelSize: '15px',
+    margin: '',
+    padding: '',
     isLabelVisible: true,
-    transitionDuration: "1s",
-    transitionTimingFunction: "ease-in-out",
-  };
+    transitionDuration: '1s',
+    transitionTimingFunction: 'ease-in-out'
+  }
 
-  const [state, setState] = useState(INITIAL_STATE);
-  const [showCode, setShowCode] = useState(false);
-  const [codeValue, setCodeValue] = useState("");
-  const [copySuccess, setCopySuccess] = useState("Copy");
-  const textAreaRef = useRef(null);
+  const [state, setState] = useState(INITIAL_STATE)
+  const [showCode, setShowCode] = useState(false)
+  const [codeValue, setCodeValue] = useState('')
+  const [copySuccess, setCopySuccess] = useState('Copy')
+  const textAreaRef = useRef(null)
 
   const handleChange = (event) => {
     setState({
       ...state,
-      [event.target.name]: event.target.value,
-    });
-  };
+      [event.target.name]: event.target.value
+    })
+  }
 
   const handleBgChange = (color) => {
     setState({
       ...state,
-      bgColor: color,
-    });
-  };
+      bgColor: color
+    })
+  }
 
   const handleBaseBgChange = (color) => {
     setState({
       ...state,
-      baseBgColor: color,
-    });
-  };
+      baseBgColor: color
+    })
+  }
 
   const handleLabelColorChange = (color) => {
     setState({
       ...state,
-      labelColor: color,
-    });
-  };
+      labelColor: color
+    })
+  }
 
   const handleReset = () => {
-    setState(INITIAL_STATE);
-    setShowCode(false);
-  };
+    setState(INITIAL_STATE)
+    setShowCode(false)
+  }
 
   const handleIsLabelVisibleChange = (value) => {
     setState({
       ...state,
-      isLabelVisible: value === "true",
-    });
-  };
+      isLabelVisible: value === 'true'
+    })
+  }
 
   const copyToClipboard = (e) => {
-    textAreaRef.current.select();
-    document.execCommand("copy");
-    e.target.focus();
-    setCopySuccess("Copied!");
-  };
+    textAreaRef.current.select()
+    document.execCommand('copy')
+    e.target.focus()
+    setCopySuccess('Copied!')
+  }
 
   const generateCode = () => {
-    setCopySuccess("Copy");
-    setShowCode(true);
+    setCopySuccess('Copy')
+    setShowCode(true)
     const tempCode = `<ProgressBar 
     completed={${state.completed}}
-    ${state.bgColor === "#6a1b9a" ? "" : `bgColor="${state.bgColor}"`}
-    ${state.height === "20px" ? "" : `height="${state.height}"`}
-    ${state.width === "100%" ? "" : `width="${state.width}"`}
+    ${state.bgColor === '#6a1b9a' ? '' : `bgColor="${state.bgColor}"`}
+    ${state.height === '20px' ? '' : `height="${state.height}"`}
+    ${state.width === '100%' ? '' : `width="${state.width}"`}
     ${
-      state.borderRadius === "50px"
-        ? ""
+      state.borderRadius === '50px'
+        ? ''
         : `borderRadius="${state.borderRadius}"`
     }
     ${
-      state.labelAlignment === "right"
-        ? ""
+      state.labelAlignment === 'right'
+        ? ''
         : `labelAlignment="${state.labelAlignment}"`
     }
-    ${state.isLabelVisible ? "" : `isLabelVisible={false}`}
+    ${state.isLabelVisible ? '' : 'isLabelVisible={false}'}
     ${
-      state.baseBgColor === "#e0e0de"
-        ? ""
+      state.baseBgColor === '#e0e0de'
+        ? ''
         : `baseBgColor="${state.baseBgColor}"`
     }
-    ${state.labelColor === "#fff" ? "" : `labelColor="${state.labelColor}"`}
-    ${state.labelSize === "15px" ? "" : `labelSize="${state.labelSize}"`}
-    ${state.margin === "" ? "" : `margin="${state.margin}"`}
-    ${state.padding === "" ? "" : `padding="${state.padding}"`}
+    ${state.labelColor === '#fff' ? '' : `labelColor="${state.labelColor}"`}
+    ${state.labelSize === '15px' ? '' : `labelSize="${state.labelSize}"`}
+    ${state.margin === '' ? '' : `margin="${state.margin}"`}
+    ${state.padding === '' ? '' : `padding="${state.padding}"`}
     ${
-      state.transitionDuration === "1s"
-        ? ""
+      state.transitionDuration === '1s'
+        ? ''
         : `transitionDuration="${state.transitionDuration}"`
     }
     ${
-      state.transitionTimingFunction === "ease-in-out"
-        ? ""
+      state.transitionTimingFunction === 'ease-in-out'
+        ? ''
         : `transitionTimingFunction="${state.transitionTimingFunction}"`
     }
-    />`;
-    const code = tempCode.replace(/^\s*$(?:\r\n?|\n)/gm, "");
-    setCodeValue(code);
-  };
+    />`
+    const code = tempCode.replace(/^\s*$(?:\r\n?|\n)/gm, '')
+    setCodeValue(code)
+  }
 
   return (
     <>
@@ -129,15 +129,15 @@ const CustomizedBar = () => {
         handleIsLabelVisibleChange={handleIsLabelVisibleChange}
         handleReset={handleReset}
       />
-      <button className="reset-button" onClick={handleReset}>
+      <button className='reset-button' onClick={handleReset}>
         RESET
       </button>
-      <button className="code-button" onClick={generateCode}>
+      <button className='code-button' onClick={generateCode}>
         Generate Component Code
       </button>
       <div>
         {showCode && (
-          <div className="code-area">
+          <div className='code-area'>
             <button onClick={copyToClipboard}>{copySuccess}</button>
             <textarea
               ref={textAreaRef}
@@ -148,7 +148,7 @@ const CustomizedBar = () => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default CustomizedBar;
+export default CustomizedBar

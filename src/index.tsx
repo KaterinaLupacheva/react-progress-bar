@@ -1,27 +1,27 @@
-import * as React from "react";
-import * as PropTypes from "prop-types";
+import * as React from 'react'
+import * as PropTypes from 'prop-types'
 
-export type ProgressBarProps = {
-  completed: string | number;
-  bgColor?: string;
-  baseBgColor?: string;
-  height?: string;
-  width?: string;
-  borderRadius?: string;
-  margin?: string;
-  padding?: string;
-  labelAlignment?: "left" | "center" | "right" | "outside";
-  labelColor?: string;
-  labelSize?: string;
-  isLabelVisible?: boolean;
-  transitionDuration?: string;
+export interface ProgressBarProps {
+  completed: string | number
+  bgColor?: string
+  baseBgColor?: string
+  height?: string
+  width?: string
+  borderRadius?: string
+  margin?: string
+  padding?: string
+  labelAlignment?: 'left' | 'center' | 'right' | 'outside'
+  labelColor?: string
+  labelSize?: string
+  isLabelVisible?: boolean
+  transitionDuration?: string
   transitionTimingFunction?:
-    | "ease"
-    | "linear"
-    | "ease-in"
-    | "ease-out"
-    | "ease-in-out";
-};
+  | 'ease'
+  | 'linear'
+  | 'ease-in'
+  | 'ease-out'
+  | 'ease-in-out'
+}
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
   bgColor,
@@ -37,23 +37,23 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   labelSize,
   isLabelVisible,
   transitionDuration,
-  transitionTimingFunction,
+  transitionTimingFunction
 }) => {
   const getAlignment = (
-    alignmentOption: ProgressBarProps["labelAlignment"]
-  ) => {
-    if (alignmentOption === "left") {
-      return "flex-start";
-    } else if (alignmentOption === "center") {
-      return "center";
-    } else if (alignmentOption === "right") {
-      return "flex-end";
+    alignmentOption: ProgressBarProps['labelAlignment']
+  ): string | null => {
+    if (alignmentOption === 'left') {
+      return 'flex-start'
+    } else if (alignmentOption === 'center') {
+      return 'center'
+    } else if (alignmentOption === 'right') {
+      return 'flex-end'
     } else {
-      return null;
+      return null
     }
-  };
+  }
 
-  const alignment = getAlignment(labelAlignment);
+  const alignment = getAlignment(labelAlignment)
 
   const containerStyles: React.CSSProperties = {
     height: height,
@@ -61,55 +61,55 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     borderRadius: borderRadius,
     padding: padding,
     width: width,
-    margin: margin,
-  };
+    margin: margin
+  }
 
   const fillerStyles: React.CSSProperties = {
     height: height,
-    width: Number(completed) > 100 ? `100%` : `${Number(completed)}%`,
+    width: Number(completed) > 100 ? '100%' : `${Number(completed)}%`,
     backgroundColor: bgColor,
-    transition: `width ${transitionDuration || "1s"} ${
-      transitionTimingFunction || "ease-in-out"
+    transition: `width ${transitionDuration ?? '1s'} ${
+      transitionTimingFunction ?? 'ease-in-out'
     }`,
-    borderRadius: "inherit",
-    display: "flex",
-    alignItems: "center",
+    borderRadius: 'inherit',
+    display: 'flex',
+    alignItems: 'center',
     justifyContent:
-      labelAlignment !== "outside" && alignment ? alignment : "normal",
-  };
+      labelAlignment !== 'outside' && alignment !== null ? alignment : 'normal'
+  }
 
   const labelStyles: React.CSSProperties = {
-    padding: labelAlignment === "outside" ? "0 0 0 5px" : "5px",
+    padding: labelAlignment === 'outside' ? '0 0 0 5px' : '5px',
     color: labelColor,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: labelSize,
-    display: !isLabelVisible ? "none" : "initial",
-  };
+    display: isLabelVisible !== true ? 'none' : 'initial'
+  }
 
   const outsideStyles = {
-    display: labelAlignment === "outside" ? "flex" : "initial",
-    alignItems: labelAlignment === "outside" ? "center" : "initial",
-  };
+    display: labelAlignment === 'outside' ? 'flex' : 'initial',
+    alignItems: labelAlignment === 'outside' ? 'center' : 'initial'
+  }
 
   return (
     <div style={outsideStyles}>
       <div style={containerStyles}>
         <div style={fillerStyles}>
-          {labelAlignment !== "outside" && (
+          {labelAlignment !== 'outside' && (
             <span style={labelStyles}>
-              {typeof completed === "number" ? `${completed}%` : `${completed}`}
+              {typeof completed === 'number' ? `${completed}%` : `${completed}`}
             </span>
           )}
         </div>
       </div>
-      {labelAlignment === "outside" && (
+      {labelAlignment === 'outside' && (
         <span style={labelStyles}>
-          {typeof completed === "number" ? `${completed}%` : `${completed}`}
+          {typeof completed === 'number' ? `${completed}%` : `${completed}`}
         </span>
       )}
     </div>
-  );
-};
+  )
+}
 
 ProgressBar.propTypes = {
   completed: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
@@ -121,22 +121,22 @@ ProgressBar.propTypes = {
   borderRadius: PropTypes.string,
   margin: PropTypes.string,
   padding: PropTypes.string,
-  labelAlignment: PropTypes.oneOf(["left", "center", "right", "outside"]),
+  labelAlignment: PropTypes.oneOf(['left', 'center', 'right', 'outside']),
   labelColor: PropTypes.string,
   labelSize: PropTypes.string,
-  isLabelVisible: PropTypes.bool,
-};
+  isLabelVisible: PropTypes.bool
+}
 
 ProgressBar.defaultProps = {
-  bgColor: "#6a1b9a",
-  height: "20px",
-  width: "100%",
-  borderRadius: "50px",
-  labelAlignment: "right",
-  baseBgColor: "#e0e0de",
-  labelColor: "#fff",
-  labelSize: "15px",
-  isLabelVisible: true,
-};
+  bgColor: '#6a1b9a',
+  height: '20px',
+  width: '100%',
+  borderRadius: '50px',
+  labelAlignment: 'right',
+  baseBgColor: '#e0e0de',
+  labelColor: '#fff',
+  labelSize: '15px',
+  isLabelVisible: true
+}
 
-export default ProgressBar;
+export default ProgressBar

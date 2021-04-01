@@ -1,0 +1,12 @@
+{
+    "root": true,
+    "parser": "babel-eslint",
+    "extends": [
+        "standard",
+        "standard-jsx",
+        "standard-react"
+    ],
+    "env": {
+        "browser": true
+    }
+}

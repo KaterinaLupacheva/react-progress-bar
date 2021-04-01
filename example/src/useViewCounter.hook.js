@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 const useViewCounter = (slug) => {
-  const [views, setViews] = useState(null);
+  const [views, setViews] = useState(null)
 
   useEffect(() => {
     // Don't count views on localhost
-    if (process.env.NODE_ENV !== "production") {
-      return;
+    if (process.env.NODE_ENV !== 'production') {
+      return
     }
 
     fetch(`https://my-projects-dashboard.vercel.app/api/views/${slug}`, {
-      mode: "no-cors",
+      mode: 'no-cors'
     })
       .then((res) => res.json())
       .then((json) => {
-        setViews(json.totalViews);
+        setViews(json.totalViews)
       })
-      .catch((err) => console.error(err.message));
-  }, [slug]);
-  return { views };
-};
+      .catch((err) => console.error(err.message))
+  }, [slug])
+  return { views }
+}
 
-export default useViewCounter;
+export default useViewCounter
