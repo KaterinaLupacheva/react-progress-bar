@@ -50,6 +50,7 @@ const Example = () => {
 | `isLabelVisible`           | `boolean`                                                      | `true`        | Visibility of the label                                       |
 | `transitionDuration`       | `string`                                                       | `1s`          | Duration of the width transition                              |
 | `transitionTimingFunction` | `string:` <br/> `ease, linear, ease-in, ease-out, ease-in-out` | `ease-in-out` | Timing function of the width transition                       |
+| `className`                | `string`                                                       |               | Add a `className` to the top `div`
 
 ## License
 
