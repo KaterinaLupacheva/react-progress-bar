@@ -21,6 +21,7 @@ export type ProgressBarProps = {
     | "ease-in"
     | "ease-out"
     | "ease-in-out";
+  containerRef?: React.LegacyRef<HTMLDivElement>
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -38,6 +39,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   isLabelVisible,
   transitionDuration,
   transitionTimingFunction,
+  containerRef
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -93,7 +95,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <div style={outsideStyles}>
-      <div style={containerStyles}>
+      <div style={containerStyles} ref={containerRef}>
         <div style={fillerStyles}>
           {labelAlignment !== "outside" && (
             <span style={labelStyles}>
@@ -124,7 +126,7 @@ ProgressBar.propTypes = {
   labelAlignment: PropTypes.oneOf(["left", "center", "right", "outside"]),
   labelColor: PropTypes.string,
   labelSize: PropTypes.string,
-  isLabelVisible: PropTypes.bool,
+  isLabelVisible: PropTypes.bool
 };
 
 ProgressBar.defaultProps = {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CustomizedBar from "./CustomizedBar";
 import ProgressBar from "@ramonak/react-progress-bar";
+import RefBar from './RefBar'
 
 const DemoApp = () => {
   const [completed, setCompleted] = useState(0);
@@ -16,6 +17,9 @@ const DemoApp = () => {
       <hr />
       <h3>{"Interactive Generator"}</h3>
       <CustomizedBar />
+      <hr />
+      <h3>Uses Ref</h3>
+      <RefBar />
     </div>
   );
 };
