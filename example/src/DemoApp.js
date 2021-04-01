@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CustomizedBar from "./CustomizedBar";
 import ProgressBar from "@ramonak/react-progress-bar";
+import PointerBar from './PointerBar'
 
 const DemoApp = () => {
   const [completed, setCompleted] = useState(0);
@@ -16,6 +17,8 @@ const DemoApp = () => {
       <hr />
       <h3>{"Interactive Generator"}</h3>
       <CustomizedBar />
+      <h3>Pointer Cursor</h3>
+      <PointerBar />
     </div>
   );
 };
