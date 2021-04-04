@@ -21,7 +21,7 @@ export type ProgressBarProps = {
     | "ease-in"
     | "ease-out"
     | "ease-in-out";
-  className?: string
+  className?: string;
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -39,7 +39,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   isLabelVisible,
   transitionDuration,
   transitionTimingFunction,
-  className
+  className,
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -127,7 +127,7 @@ ProgressBar.propTypes = {
   labelColor: PropTypes.string,
   labelSize: PropTypes.string,
   isLabelVisible: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
