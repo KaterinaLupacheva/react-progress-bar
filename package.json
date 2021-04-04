@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rm -rf dist && rollup -c",
     "start": "rollup -c -w",
-    "prepublish:public": "npm run build && npm run bump-version",
+    "prepublish:public": "npm run build",
     "publish:public": "npm publish --access public"
   },
   "repository": {
