@@ -7,8 +7,10 @@
     "example": "example"
   },
   "scripts": {
-    "build": "rollup -c",
-    "start": "rollup -c -w"
+    "build": "rm -rf dist && rollup -c",
+    "start": "rollup -c -w",
+    "prepublish:public": "npm run build && npm run bump-version",
+    "publish:public": "npm publish --access public"
   },
   "repository": {
     "type": "git",
