@@ -1,6 +1,6 @@
 {
   "name": "@ramonak/react-progress-bar",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "> Progress Bar React Component",
   "main": "dist/index.js",
   "directories": {
@@ -29,8 +29,8 @@
   },
   "homepage": "https://katerinalupacheva.github.io/react-progress-bar/",
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.0.0 || ^17",
+    "react-dom": "^16.0.0 || ^17"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
