@@ -23,6 +23,9 @@ export type ProgressBarProps = {
     | "ease-in-out";
   className?: string;
   dir?: string;
+  ariaValuemin?: number;
+  ariaValuemax?: number;
+  ariaValuetext?: number | null;
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -42,6 +45,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   transitionTimingFunction,
   className,
   dir,
+  ariaValuemin,
+  ariaValuemax,
+  ariaValuetext,
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -102,6 +108,13 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       style={outsideStyles}
       className={className}
       dir={dir}
+      role="progressbar"
+      aria-valuenow={parseFloat(completedStr)}
+      aria-valuemin={ariaValuemin}
+      aria-valuemax={ariaValuemax}
+      aria-valuetext={`${
+        ariaValuetext === null ? completedStr : ariaValuetext
+      }`}
     >
       <div style={containerStyles}>
         <div style={fillerStyles}>
@@ -145,6 +158,9 @@ ProgressBar.defaultProps = {
   labelSize: "15px",
   isLabelVisible: true,
   dir: "ltr",
+  ariaValuemin: 0,
+  ariaValuemax: 100,
+  ariaValuetext: null,
 };
 
 export default ProgressBar;
