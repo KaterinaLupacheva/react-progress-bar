@@ -22,6 +22,7 @@ export type ProgressBarProps = {
     | "ease-out"
     | "ease-in-out";
   className?: string;
+  dir?: string;
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -40,6 +41,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   transitionDuration,
   transitionTimingFunction,
   className,
+  dir,
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -96,7 +98,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const completedStr =
     typeof completed === 'number' ? `${completed}%` : `${completed}`;
   return (
-    <div style={outsideStyles} className={className}>
+    <div
+      style={outsideStyles}
+      className={className}
+      dir={dir}
+    >
       <div style={containerStyles}>
         <div style={fillerStyles}>
           {labelAlignment !== "outside" && (
@@ -138,6 +144,7 @@ ProgressBar.defaultProps = {
   labelColor: "#fff",
   labelSize: "15px",
   isLabelVisible: true,
+  dir: "ltr",
 };
 
 export default ProgressBar;
