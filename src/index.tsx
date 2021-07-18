@@ -93,21 +93,19 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     alignItems: labelAlignment === "outside" ? "center" : "initial",
   };
 
+  const completedStr =
+    typeof completed === 'number' ? `${completed}%` : `${completed}`;
   return (
     <div style={outsideStyles} className={className}>
       <div style={containerStyles}>
         <div style={fillerStyles}>
           {labelAlignment !== "outside" && (
-            <span style={labelStyles}>
-              {typeof completed === "number" ? `${completed}%` : `${completed}`}
-            </span>
+            <span style={labelStyles}>{completedStr}</span>
           )}
         </div>
       </div>
       {labelAlignment === "outside" && (
-        <span style={labelStyles}>
-          {typeof completed === "number" ? `${completed}%` : `${completed}`}
-        </span>
+        <span style={labelStyles}>{completedStr}</span>
       )}
     </div>
   );
