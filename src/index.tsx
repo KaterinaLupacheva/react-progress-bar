@@ -22,7 +22,7 @@ export type ProgressBarProps = {
     | "ease-out"
     | "ease-in-out";
   className?: string;
-  dir?: string;
+  dir?: "ltr" | "rtl" | "auto";
   ariaValuemin?: number;
   ariaValuemax?: number;
   ariaValuetext?: number | null;
@@ -102,7 +102,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   };
 
   const completedStr =
-    typeof completed === 'number' ? `${completed}%` : `${completed}`;
+    typeof completed === "number" ? `${completed}%` : `${completed}`;
   return (
     <div
       style={outsideStyles}
@@ -145,6 +145,7 @@ ProgressBar.propTypes = {
   labelSize: PropTypes.string,
   isLabelVisible: PropTypes.bool,
   className: PropTypes.string,
+  dir: PropTypes.oneOf(["rtl", "ltr", "auto"]),
 };
 
 ProgressBar.defaultProps = {

@@ -51,10 +51,10 @@ const Example = () => {
 | `transitionDuration`       | `string`                                                       | `1s`          | Duration of the width transition                              |
 | `transitionTimingFunction` | `string:` <br/> `ease, linear, ease-in, ease-out, ease-in-out` | `ease-in-out` | Timing function of the width transition                       |
 | `className`                | `string`                                                       |               | Add a `className` to the parent `div`
-| `dir`                      | `string`                                                       |  `ltr`        | Progressbar HTML direction
+| `dir`                      | `string:` <br/> `ltr, rtl, auto`                                                       |  `ltr`        | Progressbar HTML direction
 | `ariaValuemin`             | `number`                                                       |  `0`          | accessibility: Defines the minimum allowed value for a range
 | `ariaValuemax`             | `number`                                                       |  `100`        | accessibility: Defines the maximum allowed value for a range
-| `ariaValuetext`            | `number \| null`                                               |  `null`       | accessibility: Defines the human readable text alternative of aria-valuenow (defaults to completed if not passed)
+| `ariaValuetext`            | `number | null`                                               |  `null`       | accessibility: Defines the human readable text alternative of aria-valuenow (defaults to completed if not passed)
 
 
 ## License
