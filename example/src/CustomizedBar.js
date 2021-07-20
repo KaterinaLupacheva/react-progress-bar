@@ -20,6 +20,7 @@ const CustomizedBar = () => {
     isLabelVisible: true,
     transitionDuration: "1s",
     transitionTimingFunction: "ease-in-out",
+    dir: "ltr",
   };
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -113,6 +114,7 @@ const CustomizedBar = () => {
         ? ""
         : `transitionTimingFunction="${state.transitionTimingFunction}"`
     }
+    ${state.dir === "ltr" ? "" : `dir="${state.dir}"`}
     />`;
     const code = tempCode.replace(/^\s*$(?:\r\n?|\n)/gm, "");
     setCodeValue(code);

@@ -227,6 +227,19 @@ const Parameters = ({
           <option value="ease-out">ease-out</option>
         </select>
       </div>
+      <div className="param">
+        <label htmlFor="dir">direction</label>
+        <select
+          name="dir"
+          defaultValue="ltr"
+          id="dir"
+          onChange={handleChange}
+        >
+          <option value="ltr">ltr</option>
+          <option value="rtl">rtl</option>
+          <option value="auto">auto</option>
+        </select>
+      </div>
     </>
   );
 };
