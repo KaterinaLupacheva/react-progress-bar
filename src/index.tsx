@@ -22,6 +22,10 @@ export type ProgressBarProps = {
     | "ease-out"
     | "ease-in-out";
   className?: string;
+  dir?: "ltr" | "rtl" | "auto";
+  ariaValuemin?: number;
+  ariaValuemax?: number;
+  ariaValuetext?: number | null;
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -40,6 +44,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   transitionDuration,
   transitionTimingFunction,
   className,
+  dir,
+  ariaValuemin,
+  ariaValuemax,
+  ariaValuetext,
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -93,21 +101,30 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     alignItems: labelAlignment === "outside" ? "center" : "initial",
   };
 
+  const completedStr =
+    typeof completed === "number" ? `${completed}%` : `${completed}`;
   return (
-    <div style={outsideStyles} className={className}>
+    <div
+      style={outsideStyles}
+      className={className}
+      dir={dir}
+      role="progressbar"
+      aria-valuenow={parseFloat(completedStr)}
+      aria-valuemin={ariaValuemin}
+      aria-valuemax={ariaValuemax}
+      aria-valuetext={`${
+        ariaValuetext === null ? completedStr : ariaValuetext
+      }`}
+    >
       <div style={containerStyles}>
         <div style={fillerStyles}>
           {labelAlignment !== "outside" && (
-            <span style={labelStyles}>
-              {typeof completed === "number" ? `${completed}%` : `${completed}`}
-            </span>
+            <span style={labelStyles}>{completedStr}</span>
           )}
         </div>
       </div>
       {labelAlignment === "outside" && (
-        <span style={labelStyles}>
-          {typeof completed === "number" ? `${completed}%` : `${completed}`}
-        </span>
+        <span style={labelStyles}>{completedStr}</span>
       )}
     </div>
   );
@@ -128,6 +145,7 @@ ProgressBar.propTypes = {
   labelSize: PropTypes.string,
   isLabelVisible: PropTypes.bool,
   className: PropTypes.string,
+  dir: PropTypes.oneOf(["rtl", "ltr", "auto"]),
 };
 
 ProgressBar.defaultProps = {
@@ -140,6 +158,10 @@ ProgressBar.defaultProps = {
   labelColor: "#fff",
   labelSize: "15px",
   isLabelVisible: true,
+  dir: "ltr",
+  ariaValuemin: 0,
+  ariaValuemax: 100,
+  ariaValuetext: null,
 };
 
 export default ProgressBar;
