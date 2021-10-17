@@ -27,6 +27,7 @@ export type ProgressBarProps = {
   ariaValuemax?: number;
   ariaValuetext?: number | null;
   maxCompleted?: number;
+  customLabel?: string;
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -50,6 +51,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   ariaValuemax,
   ariaValuetext,
   maxCompleted,
+  customLabel,
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -73,9 +75,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   ) => {
     if (maxCompletedValue) {
       const ratio = Number(completedValue) / maxCompletedValue;
-      return ratio > 1 || typeof completedValue === "string"
-        ? "100%"
-        : `${ratio * 100}%`;
+      return ratio > 1 ? "100%" : `${ratio * 100}%`;
     }
     return 0;
   };
@@ -120,28 +120,29 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   const completedStr =
     typeof completed === "number" ? `${completed}%` : `${completed}`;
+
+  const labelStr = customLabel ? customLabel : completedStr;
+
   return (
     <div
       style={outsideStyles}
       className={className}
       dir={dir}
       role="progressbar"
-      aria-valuenow={parseFloat(completedStr)}
+      aria-valuenow={parseFloat(labelStr)}
       aria-valuemin={ariaValuemin}
       aria-valuemax={ariaValuemax}
-      aria-valuetext={`${
-        ariaValuetext === null ? completedStr : ariaValuetext
-      }`}
+      aria-valuetext={`${ariaValuetext === null ? labelStr : ariaValuetext}`}
     >
       <div style={containerStyles}>
         <div style={fillerStyles}>
           {labelAlignment !== "outside" && (
-            <span style={labelStyles}>{completedStr}</span>
+            <span style={labelStyles}>{labelStr}</span>
           )}
         </div>
       </div>
       {labelAlignment === "outside" && (
-        <span style={labelStyles}>{completedStr}</span>
+        <span style={labelStyles}>{labelStr}</span>
       )}
     </div>
   );
@@ -164,6 +165,7 @@ ProgressBar.propTypes = {
   className: PropTypes.string,
   dir: PropTypes.oneOf(["rtl", "ltr", "auto"]),
   maxCompleted: PropTypes.number,
+  customLabel: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
