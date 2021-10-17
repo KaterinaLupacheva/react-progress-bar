@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/react-progress-bar/static/css/main.bdbb48de.chunk.css",
-    "main.js": "/react-progress-bar/static/js/main.87c93cf6.chunk.js",
-    "main.js.map": "/react-progress-bar/static/js/main.87c93cf6.chunk.js.map",
+    "main.js": "/react-progress-bar/static/js/main.ef6591b8.chunk.js",
+    "main.js.map": "/react-progress-bar/static/js/main.ef6591b8.chunk.js.map",
     "runtime-main.js": "/react-progress-bar/static/js/runtime-main.ea0d4f0b.js",
     "runtime-main.js.map": "/react-progress-bar/static/js/runtime-main.ea0d4f0b.js.map",
-    "static/js/2.eb08b3e5.chunk.js": "/react-progress-bar/static/js/2.eb08b3e5.chunk.js",
-    "static/js/2.eb08b3e5.chunk.js.map": "/react-progress-bar/static/js/2.eb08b3e5.chunk.js.map",
+    "static/js/2.9726f401.chunk.js": "/react-progress-bar/static/js/2.9726f401.chunk.js",
+    "static/js/2.9726f401.chunk.js.map": "/react-progress-bar/static/js/2.9726f401.chunk.js.map",
     "index.html": "/react-progress-bar/index.html",
     "static/css/main.bdbb48de.chunk.css.map": "/react-progress-bar/static/css/main.bdbb48de.chunk.css.map",
-    "static/js/2.eb08b3e5.chunk.js.LICENSE.txt": "/react-progress-bar/static/js/2.eb08b3e5.chunk.js.LICENSE.txt"
+    "static/js/2.9726f401.chunk.js.LICENSE.txt": "/react-progress-bar/static/js/2.9726f401.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ea0d4f0b.js",
-    "static/js/2.eb08b3e5.chunk.js",
+    "static/js/2.9726f401.chunk.js",
     "static/css/main.bdbb48de.chunk.css",
-    "static/js/main.87c93cf6.chunk.js"
+    "static/js/main.ef6591b8.chunk.js"
   ]
 }
