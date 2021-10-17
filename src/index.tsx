@@ -73,7 +73,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   ) => {
     if (maxCompletedValue) {
       const ratio = Number(completedValue) / maxCompletedValue;
-      return ratio > 1 ? "100%" : `${ratio * 100}%`;
+      return ratio > 1 || typeof completedValue === "string"
+        ? "100%"
+        : `${ratio * 100}%`;
     }
     return 0;
   };

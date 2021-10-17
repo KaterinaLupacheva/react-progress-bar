@@ -37,6 +37,8 @@ const Example = () => {
 | Name                       | Type                                                           | Default       | Description                                                   |
 | -------------------------- | -------------------------------------------------------------- | ------------- | ------------------------------------------------------------- |
 | `completed` (required)     | `Number between 0 and` <br/>` 100 or string.`                  |               | Percentage of completed progress bar value. <br/>             |
+| `maxCompleted`                  | `number`                                                       | `100`     | Max possible value of the `completed` prop                                    |
+
 | `bgColor`                  | `string`                                                       | `#6a1b9a`     | Color of the completed bar                                    |
 | `height`                   | `string`                                                       | `20px`        | Height of the bar                                             |
 | `width`                    | `string`                                                       | `100%`        | Width of the bar                                              |
