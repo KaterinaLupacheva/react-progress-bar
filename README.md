@@ -32,32 +32,58 @@ const Example = () => {
 };
 ```
 
+## Examples
+
+### Label without "%" at the end
+
+![example1](./images/example1.png)
+
+```jsx
+
+<ProgressBar completed="60">
+```
+
+### Max completed value is greater than 100
+
+![example1](./images/example2.png)
+
+```jsx
+<ProgressBar completed={180} maxCompleted={200} />
+```
+
+### Custom Label
+
+![example1](./images/example3.png)
+
+```jsx
+<ProgressBar completed={60} customLabel="Not there yet" />
+```
+
 ## Props
 
-| Name                       | Type                                                           | Default       | Description                                                   |
-| -------------------------- | -------------------------------------------------------------- | ------------- | ------------------------------------------------------------- |
-| `completed` (required)     | `Number between 0 and` <br/>` 100 or string.`                  |               | Percentage of completed progress bar value. <br/>             |
-| `maxCompleted`                  | `number`                                                       | `100`     | Max possible value of the `completed` prop                                    |
-
-| `bgColor`                  | `string`                                                       | `#6a1b9a`     | Color of the completed bar                                    |
-| `height`                   | `string`                                                       | `20px`        | Height of the bar                                             |
-| `width`                    | `string`                                                       | `100%`        | Width of the bar                                              |
-| `margin`                   | `string`                                                       |               | Margin                                                        |
-| `padding`                  | `string`                                                       |               | Padding                                                       |
-| `borderRadius`             | `string`                                                       | `50px`        | Border radius of the bar                                      |
-| `baseBgColor`              | `string`                                                       | `#e0e0de`     | Color of the "non-completed" bar                              |
-| `labelAlignment`           | `string:` <br/> `left, center, right, outside`                 | `right`       | Position of the label inside the completed bar or outside bar |
-| `labelColor`               | `string`                                                       | `#fff`        | Color of the label text                                       |
-| `labelSize`                | `string`                                                       | `15px`        | Font-size of the label text                                   |
-| `isLabelVisible`           | `boolean`                                                      | `true`        | Visibility of the label                                       |
-| `transitionDuration`       | `string`                                                       | `1s`          | Duration of the width transition                              |
-| `transitionTimingFunction` | `string:` <br/> `ease, linear, ease-in, ease-out, ease-in-out` | `ease-in-out` | Timing function of the width transition                       |
-| `className`                | `string`                                                       |               | Add a `className` to the parent `div`
-| `dir`                      | `string:` <br/> `ltr, rtl, auto`                                                       |  `ltr`        | Progressbar HTML direction
-| `ariaValuemin`             | `number`                                                       |  `0`          | accessibility: Defines the minimum allowed value for a range
-| `ariaValuemax`             | `number`                                                       |  `100`        | accessibility: Defines the maximum allowed value for a range
-| `ariaValuetext`            | `number`                                               |  `null`       | accessibility: Defines the human readable text alternative of aria-valuenow (defaults to completed if not passed)
-
+| Name                       | Type                                                           | Default       | Description                                                                                                                   |
+| -------------------------- | -------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `completed` (required)     | `Number or string`                                             |               | Percentage of completed progress bar value. <br/> If a string, the "%" won't be added to the label. See [Examples](#examples) |
+| `maxCompleted`             | `number`                                                       | `100`         | Max possible value of the `completed` prop                                                                                    |
+| `customLabel`              | `string`                                                       | undefined     | Custom label                                                                                                                  |
+| `bgColor`                  | `string`                                                       | `#6a1b9a`     | Color of the completed bar                                                                                                    |
+| `height`                   | `string`                                                       | `20px`        | Height of the bar                                                                                                             |
+| `width`                    | `string`                                                       | `100%`        | Width of the bar                                                                                                              |
+| `margin`                   | `string`                                                       |               | Margin                                                                                                                        |
+| `padding`                  | `string`                                                       |               | Padding                                                                                                                       |
+| `borderRadius`             | `string`                                                       | `50px`        | Border radius of the bar                                                                                                      |
+| `baseBgColor`              | `string`                                                       | `#e0e0de`     | Color of the "non-completed" bar                                                                                              |
+| `labelAlignment`           | `string:` <br/> `left, center, right, outside`                 | `right`       | Position of the label inside the completed bar or outside bar                                                                 |
+| `labelColor`               | `string`                                                       | `#fff`        | Color of the label text                                                                                                       |
+| `labelSize`                | `string`                                                       | `15px`        | Font-size of the label text                                                                                                   |
+| `isLabelVisible`           | `boolean`                                                      | `true`        | Visibility of the label                                                                                                       |
+| `transitionDuration`       | `string`                                                       | `1s`          | Duration of the width transition                                                                                              |
+| `transitionTimingFunction` | `string:` <br/> `ease, linear, ease-in, ease-out, ease-in-out` | `ease-in-out` | Timing function of the width transition                                                                                       |
+| `className`                | `string`                                                       |               | Add a `className` to the parent `div`                                                                                         |
+| `dir`                      | `string:` <br/> `ltr, rtl, auto`                               | `ltr`         | Progressbar HTML direction                                                                                                    |
+| `ariaValuemin`             | `number`                                                       | `0`           | accessibility: Defines the minimum allowed value for a range                                                                  |
+| `ariaValuemax`             | `number`                                                       | `100`         | accessibility: Defines the maximum allowed value for a range                                                                  |
+| `ariaValuetext`            | `number`                                                       | `null`        | accessibility: Defines the human readable text alternative of aria-valuenow (defaults to completed if not passed)             |
 
 ## License
 
