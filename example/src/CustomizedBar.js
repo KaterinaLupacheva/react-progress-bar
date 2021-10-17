@@ -22,6 +22,7 @@ const CustomizedBar = () => {
     transitionTimingFunction: "ease-in-out",
     dir: "ltr",
     maxCompleted: 100,
+    customLabel: undefined,
   };
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -117,6 +118,7 @@ const CustomizedBar = () => {
     }
     ${state.dir === "ltr" ? "" : `dir="${state.dir}"`}
     ${state.maxCompleted === 100 ? "" : `maxCompleted={${state.maxCompleted}}`}
+    ${state.customLabel ? `customLabel="${state.customLabel}"` : ""}
     />`;
     const code = tempCode.replace(/^\s*$(?:\r\n?|\n)/gm, "");
     setCodeValue(code);

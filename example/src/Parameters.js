@@ -13,7 +13,6 @@ const Parameters = ({
   const [barColor, setBarColor] = useState("#6a1b9a");
   const [baseBgColor, setBaseBgColor] = useState("#e0e0de");
   const [labelColor, setLabelColor] = useState("#e80909");
-  const [maxCompleted, setMaxCompleted] = useState(100);
   const cpOne = useClickOutside(false);
   const cpTwo = useClickOutside(false);
   const cpThree = useClickOutside(false);
@@ -52,6 +51,16 @@ const Parameters = ({
           id="maxCompleted"
           type="text"
           placeholder="number"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="param">
+        <label htmlFor="customLabel">custom label</label>
+        <input
+          name="customLabel"
+          id="customLabel"
+          type="text"
+          placeholder="any text"
           onChange={handleChange}
         />
       </div>
