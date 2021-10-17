@@ -13,6 +13,7 @@ const Parameters = ({
   const [barColor, setBarColor] = useState("#6a1b9a");
   const [baseBgColor, setBaseBgColor] = useState("#e0e0de");
   const [labelColor, setLabelColor] = useState("#e80909");
+  const [maxCompleted, setMaxCompleted] = useState(100);
   const cpOne = useClickOutside(false);
   const cpTwo = useClickOutside(false);
   const cpThree = useClickOutside(false);
@@ -41,6 +42,16 @@ const Parameters = ({
           id="completed"
           type="text"
           placeholder="1-100"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="param">
+        <label htmlFor="maxCompleted">max completed</label>
+        <input
+          name="maxCompleted"
+          id="maxCompleted"
+          type="text"
+          placeholder="number"
           onChange={handleChange}
         />
       </div>
@@ -229,12 +240,7 @@ const Parameters = ({
       </div>
       <div className="param">
         <label htmlFor="dir">direction</label>
-        <select
-          name="dir"
-          defaultValue="ltr"
-          id="dir"
-          onChange={handleChange}
-        >
+        <select name="dir" defaultValue="ltr" id="dir" onChange={handleChange}>
           <option value="ltr">ltr</option>
           <option value="rtl">rtl</option>
           <option value="auto">auto</option>
