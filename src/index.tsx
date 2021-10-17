@@ -26,6 +26,7 @@ export type ProgressBarProps = {
   ariaValuemin?: number;
   ariaValuemax?: number;
   ariaValuetext?: number | null;
+  maxCompleted?: number;
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -48,6 +49,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   ariaValuemin,
   ariaValuemax,
   ariaValuetext,
+  maxCompleted,
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -65,6 +67,19 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   const alignment = getAlignment(labelAlignment);
 
+  const getFillerWidth = (
+    maxCompletedValue: ProgressBarProps["maxCompleted"],
+    completedValue: ProgressBarProps["completed"]
+  ) => {
+    if (maxCompletedValue) {
+      const ratio = Number(completedValue) / maxCompletedValue;
+      return ratio > 1 ? "100%" : `${ratio * 100}%`;
+    }
+    return 0;
+  };
+
+  const fillerWidth = getFillerWidth(maxCompleted, completed);
+
   const containerStyles: React.CSSProperties = {
     height: height,
     backgroundColor: baseBgColor,
@@ -76,7 +91,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   const fillerStyles: React.CSSProperties = {
     height: height,
-    width: Number(completed) > 100 ? `100%` : `${Number(completed)}%`,
+    width: fillerWidth,
     backgroundColor: bgColor,
     transition: `width ${transitionDuration || "1s"} ${
       transitionTimingFunction || "ease-in-out"
@@ -146,6 +161,7 @@ ProgressBar.propTypes = {
   isLabelVisible: PropTypes.bool,
   className: PropTypes.string,
   dir: PropTypes.oneOf(["rtl", "ltr", "auto"]),
+  maxCompleted: PropTypes.number,
 };
 
 ProgressBar.defaultProps = {
@@ -162,6 +178,7 @@ ProgressBar.defaultProps = {
   ariaValuemin: 0,
   ariaValuemax: 100,
   ariaValuetext: null,
+  maxCompleted: 100,
 };
 
 export default ProgressBar;
