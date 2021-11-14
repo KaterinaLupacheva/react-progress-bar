@@ -8,7 +8,7 @@ const Parameters = ({
   handleBgChange,
   handleBaseBgChange,
   handleLabelColorChange,
-  handleIsLabelVisibleChange,
+  handleBooleanPropChange,
 }) => {
   const [barColor, setBarColor] = useState("#6a1b9a");
   const [baseBgColor, setBaseBgColor] = useState("#e0e0de");
@@ -176,10 +176,12 @@ const Parameters = ({
           name="isLabelVisible"
           defaultValue="true"
           id="isLabelVisible"
-          onChange={handleIsLabelVisibleChange}
+          onChange={(e) =>
+            handleBooleanPropChange(e.target.value, "isLabelVisible")
+          }
         >
-          <option value={true}>True</option>
-          <option value={false}>False</option>
+          <option value={"true"}>true</option>
+          <option value={"false"}>false</option>
         </select>
       </div>
       <div className="param">
@@ -245,6 +247,20 @@ const Parameters = ({
           <option value="linear">linear</option>
           <option value="ease-in">ease-in</option>
           <option value="ease-out">ease-out</option>
+        </select>
+      </div>
+      <div className="param">
+        <label htmlFor="animateOnRender">animate on render</label>
+        <select
+          name="animateOnRender"
+          defaultValue="false"
+          id="animateOnRender"
+          onChange={(e) =>
+            handleBooleanPropChange(e.target.value, "animateOnRender")
+          }
+        >
+          <option value={"true"}>true</option>
+          <option value={"false"}>false</option>
         </select>
       </div>
       <div className="param">
