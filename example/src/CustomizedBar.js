@@ -23,6 +23,7 @@ const CustomizedBar = () => {
     dir: "ltr",
     maxCompleted: 100,
     customLabel: undefined,
+    animateOnRender: false,
   };
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -64,10 +65,10 @@ const CustomizedBar = () => {
     setShowCode(false);
   };
 
-  const handleIsLabelVisibleChange = (value) => {
+  const handleBooleanPropChange = (value, propName) => {
     setState({
       ...state,
-      isLabelVisible: value === "true",
+      [propName]: value === "true",
     });
   };
 
@@ -116,6 +117,7 @@ const CustomizedBar = () => {
         ? ""
         : `transitionTimingFunction="${state.transitionTimingFunction}"`
     }
+    ${state.animateOnRender ? `animateOnRender` : ""}
     ${state.dir === "ltr" ? "" : `dir="${state.dir}"`}
     ${state.maxCompleted === 100 ? "" : `maxCompleted={${state.maxCompleted}}`}
     ${state.customLabel ? `customLabel="${state.customLabel}"` : ""}
@@ -132,7 +134,7 @@ const CustomizedBar = () => {
         handleBgChange={handleBgChange}
         handleBaseBgChange={handleBaseBgChange}
         handleLabelColorChange={handleLabelColorChange}
-        handleIsLabelVisibleChange={handleIsLabelVisibleChange}
+        handleBooleanPropChange={handleBooleanPropChange}
         handleReset={handleReset}
       />
       <button className="reset-button" onClick={handleReset}>

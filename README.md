@@ -79,6 +79,7 @@ const Example = () => {
 | `isLabelVisible`           | `boolean`                                                      | `true`        | Visibility of the label                                                                                                       |
 | `transitionDuration`       | `string`                                                       | `1s`          | Duration of the width transition                                                                                              |
 | `transitionTimingFunction` | `string:` <br/> `ease, linear, ease-in, ease-out, ease-in-out` | `ease-in-out` | Timing function of the width transition                                                                                       |
+| `animateOnRender`      | `boolean`  | false  | Should the bar width be animated on the first render |
 | `className`                | `string`                                                       |               | Add a `className` to the parent `div`                                                                                         |
 | `dir`                      | `string:` <br/> `ltr, rtl, auto`                               | `ltr`         | Progressbar HTML direction                                                                                                    |
 | `ariaValuemin`             | `number`                                                       | `0`           | accessibility: Defines the minimum allowed value for a range                                                                  |
