@@ -109,8 +109,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     height: height,
     width: animateOnRender ? initWidth : fillerWidth,
     background: bgColor,
-    transition: `width ${transitionDuration || "1s"} ${transitionTimingFunction || "ease-in-out"
-      }`,
+    transition: `width ${transitionDuration || "1s"} ${
+      transitionTimingFunction || "ease-in-out"
+    }`,
     borderRadius: "inherit",
     display: "flex",
     alignItems: "center",
