@@ -88,7 +88,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   const containerStyles: React.CSSProperties = {
     height: height,
-    backgroundColor: baseBgColor,
+    background: baseBgColor,
     borderRadius: borderRadius,
     padding: padding,
     width: width,
@@ -98,7 +98,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const fillerStyles: React.CSSProperties = {
     height: height,
     width: animateOnRender ? initWidth : fillerWidth,
-    backgroundColor: bgColor,
+    background: bgColor,
     transition: `width ${transitionDuration || "1s"} ${
       transitionTimingFunction || "ease-in-out"
     }`,
