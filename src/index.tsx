@@ -16,11 +16,11 @@ export type ProgressBarProps = {
   isLabelVisible?: boolean;
   transitionDuration?: string;
   transitionTimingFunction?:
-    | "ease"
-    | "linear"
-    | "ease-in"
-    | "ease-out"
-    | "ease-in-out";
+  | "ease"
+  | "linear"
+  | "ease-in"
+  | "ease-out"
+  | "ease-in-out";
   className?: string;
   dir?: "ltr" | "rtl" | "auto";
   ariaValuemin?: number;
@@ -32,6 +32,7 @@ export type ProgressBarProps = {
   barContainerClassName?: string;
   completedClassName?: string;
   labelClassName?: string;
+  initCompletedOnAnimation?: string | number
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -60,6 +61,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   barContainerClassName,
   completedClassName,
   labelClassName,
+  initCompletedOnAnimation = 0
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -77,6 +79,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   const alignment = getAlignment(labelAlignment);
 
+  const initCompletedOnAnimationStr = typeof initCompletedOnAnimation === "number" ? `${initCompletedOnAnimation}%` : initCompletedOnAnimation;
+
   const getFillerWidth = (
     maxCompletedValue: ProgressBarProps["maxCompleted"],
     completedValue: ProgressBarProps["completed"]
@@ -85,12 +89,12 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       const ratio = Number(completedValue) / maxCompletedValue;
       return ratio > 1 ? "100%" : `${ratio * 100}%`;
     }
-    return 0;
+    return initCompletedOnAnimationStr;
   };
 
   const fillerWidth = getFillerWidth(maxCompleted, completed);
 
-  const [initWidth, setInitWidth] = React.useState<string | 0>(0);
+  const [initWidth, setInitWidth] = React.useState<string>(initCompletedOnAnimationStr);
 
   const containerStyles: React.CSSProperties = {
     height: height,
@@ -105,9 +109,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     height: height,
     width: animateOnRender ? initWidth : fillerWidth,
     background: bgColor,
-    transition: `width ${transitionDuration || "1s"} ${
-      transitionTimingFunction || "ease-in-out"
-    }`,
+    transition: `width ${transitionDuration || "1s"} ${transitionTimingFunction || "ease-in-out"
+      }`,
     borderRadius: "inherit",
     display: "flex",
     alignItems: "center",
@@ -202,6 +205,7 @@ ProgressBar.propTypes = {
   barContainerClassName: PropTypes.string,
   completedClassName: PropTypes.string,
   labelClassName: PropTypes.string,
+  initCompletedOnAnimation: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 ProgressBar.defaultProps = {
@@ -220,6 +224,7 @@ ProgressBar.defaultProps = {
   ariaValuetext: null,
   maxCompleted: 100,
   animateOnRender: false,
+  initCompletedOnAnimation: 0
 };
 
 export default ProgressBar;
