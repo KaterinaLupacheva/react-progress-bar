@@ -59,6 +59,46 @@ const Example = () => {
 <ProgressBar completed={60} customLabel="Not there yet" />
 ```
 
+### Custom class names
+
+![example1](./images/example4.png)
+
+```css
+//styles.scss
+
+.wrapper {
+  border: 3px solid blue;
+}
+
+.container {
+  background-color: pink;
+}
+
+.barCompleted {
+  background-color: lightblue;
+  width: 80%;
+}
+
+.label {
+  font-size: 20px;
+  color: green;
+}
+```
+
+```jsx
+import './styles.scss
+
+...
+
+<ProgressBar
+  completed={80}
+  className="wrapper"
+  barContainerClassName="container"
+  completedClassName="barCompleted"
+  labelClassName="label"
+/>
+```
+
 ## Props
 
 | Name                       | Type                                                           | Default       | Description                                                                                                                   |
@@ -79,8 +119,11 @@ const Example = () => {
 | `isLabelVisible`           | `boolean`                                                      | `true`        | Visibility of the label                                                                                                       |
 | `transitionDuration`       | `string`                                                       | `1s`          | Duration of the width transition                                                                                              |
 | `transitionTimingFunction` | `string:` <br/> `ease, linear, ease-in, ease-out, ease-in-out` | `ease-in-out` | Timing function of the width transition                                                                                       |
-| `animateOnRender`      | `boolean`  | false  | Should the bar width be animated on the first render |
-| `className`                | `string`                                                       |               | Add a `className` to the parent `div`                                                                                         |
+| `animateOnRender`          | `boolean`                                                      | false         | Should the bar width be animated on the first render                                                                          |
+| `className`                | `string`                                                       |               | Add a `className` to the parent `div` (see [example](#custom-class-names))                                                    |
+| `barContainerClassName`    | `string`                                                       |               | Add a `className` to the container `div` (see [example](#custom-class-names))                                                 |
+| `completedClassName`       | `string`                                                       |               | Add a `className` to the completed part of the bar (see [example](#custom-class-names))                                       |
+| `labelClassName`           | `string`                                                       |               | Add a `className` to the bar label (see [example](#custom-class-names))                                                       |
 | `dir`                      | `string:` <br/> `ltr, rtl, auto`                               | `ltr`         | Progressbar HTML direction                                                                                                    |
 | `ariaValuemin`             | `number`                                                       | `0`           | accessibility: Defines the minimum allowed value for a range                                                                  |
 | `ariaValuemax`             | `number`                                                       | `100`         | accessibility: Defines the maximum allowed value for a range                                                                  |
