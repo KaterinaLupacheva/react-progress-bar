@@ -29,6 +29,9 @@ export type ProgressBarProps = {
   maxCompleted?: number;
   customLabel?: string;
   animateOnRender?: boolean;
+  barContainerClassName?: string;
+  completedClassName?: string;
+  labelClassName?: string;
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -54,6 +57,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   maxCompleted,
   customLabel,
   animateOnRender,
+  barContainerClassName,
+  completedClassName,
+  labelClassName,
 }) => {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
@@ -135,7 +141,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <div
-      style={outsideStyles}
+      style={className ? undefined : outsideStyles}
       className={className}
       dir={dir}
       role="progressbar"
@@ -144,15 +150,31 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       aria-valuemax={ariaValuemax}
       aria-valuetext={`${ariaValuetext === null ? labelStr : ariaValuetext}`}
     >
-      <div style={containerStyles}>
-        <div style={fillerStyles}>
+      <div
+        style={barContainerClassName ? undefined : containerStyles}
+        className={barContainerClassName}
+      >
+        <div
+          style={completedClassName ? undefined : fillerStyles}
+          className={completedClassName}
+        >
           {labelAlignment !== "outside" && (
-            <span style={labelStyles}>{labelStr}</span>
+            <span
+              style={labelClassName ? undefined : labelStyles}
+              className={labelClassName}
+            >
+              {labelStr}
+            </span>
           )}
         </div>
       </div>
       {labelAlignment === "outside" && (
-        <span style={labelStyles}>{labelStr}</span>
+        <span
+          style={labelClassName ? undefined : labelStyles}
+          className={labelClassName}
+        >
+          {labelStr}
+        </span>
       )}
     </div>
   );
@@ -177,6 +199,9 @@ ProgressBar.propTypes = {
   maxCompleted: PropTypes.number,
   customLabel: PropTypes.string,
   animateOnRender: PropTypes.bool,
+  barContainerClassName: PropTypes.string,
+  completedClassName: PropTypes.string,
+  labelClassName: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
