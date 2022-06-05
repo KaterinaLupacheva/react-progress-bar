@@ -4,14 +4,14 @@
   "private": true,
   "homepage": "https://KaterinaLupacheva.github.io/react-progress-bar",
   "dependencies": {
-    "@ramonak/react-progress-bar": "file:../ramonak-react-progress-bar-4.4.0.tgz",
+    "@ramonak/react-progress-bar": "file:../ramonak-react-progress-bar-5.0.0.tgz",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "node-sass": "npm:sass@^1.49.7",
-    "react": "^17.0.1",
+    "react": "^18.1.0",
     "react-color": "^2.19.3",
-    "react-dom": "^17.0.1",
+    "react-dom": "^18.1.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
@@ -42,6 +42,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.2.3"
   }
 }
