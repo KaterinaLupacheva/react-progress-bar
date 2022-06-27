@@ -86,7 +86,7 @@ const Example = () => {
 ```
 
 ```jsx
-import './styles.scss
+import './styles.scss'
 
 ...
 
