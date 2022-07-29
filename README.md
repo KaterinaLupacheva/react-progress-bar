@@ -129,6 +129,7 @@ import './styles.scss'
 | `ariaValuemin`             | `number`                                                       | `0`           | accessibility: Defines the minimum allowed value for a range                                                                  |
 | `ariaValuemax`             | `number`                                                       | `100`         | accessibility: Defines the maximum allowed value for a range                                                                  |
 | `ariaValuetext`            | `number`                                                       | `null`        | accessibility: Defines the human readable text alternative of aria-valuenow (defaults to completed if not passed)             |
+| `customLabelStyles`            |                                                       |         | custom CSS properties for a label)             |
 
 ## License
 

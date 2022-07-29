@@ -13,6 +13,7 @@ export type ProgressBarProps = {
   labelAlignment?: "left" | "center" | "right" | "outside";
   labelColor?: string;
   labelSize?: string;
+  customLabelStyles?: React.CSSProperties;
   isLabelVisible?: boolean;
   transitionDuration?: string;
   transitionTimingFunction?:
@@ -48,6 +49,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   labelColor,
   labelSize,
   isLabelVisible,
+  customLabelStyles,
   transitionDuration,
   transitionTimingFunction,
   className,
@@ -109,9 +111,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     height: height,
     width: animateOnRender ? initWidth : fillerWidth,
     background: bgColor,
-    transition: `width ${transitionDuration || "1s"} ${
-      transitionTimingFunction || "ease-in-out"
-    }`,
+    transition: `width ${transitionDuration || "1s"} ${transitionTimingFunction || "ease-in-out"
+      }`,
     borderRadius: "inherit",
     display: "flex",
     alignItems: "center",
@@ -125,6 +126,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     fontWeight: "bold",
     fontSize: labelSize,
     display: !isLabelVisible ? "none" : "initial",
+    ...customLabelStyles
   };
 
   const outsideStyles = {
