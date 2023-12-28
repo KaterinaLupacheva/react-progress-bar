@@ -1,6 +1,6 @@
 {
   "name": "@ramonak/react-progress-bar",
-  "version": "5.1.1",
+  "version": "5.2.0",
   "description": "> Progress Bar React Component",
   "main": "dist/index.js",
   "directories": {
