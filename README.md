@@ -130,6 +130,7 @@ import './styles.scss'
 | `ariaValuemax`             | `number`                                                       | `100`         | accessibility: Defines the maximum allowed value for a range                                                                  |
 | `ariaValuetext`            | `number`                                                       | `null`        | accessibility: Defines the human readable text alternative of aria-valuenow (defaults to completed if not passed)             |
 | `customLabelStyles`            |  CSS.Properties                                                     |         | custom CSS properties for a label           |
+| `isIndeterminate`            |  boolean                                                     |   `false`      | indeterminate progress bar           | 
 
 ## License
 

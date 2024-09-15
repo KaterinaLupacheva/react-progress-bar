@@ -33,6 +33,7 @@ export type ProgressBarProps = {
   completedClassName?: string;
   labelClassName?: string;
   initCompletedOnAnimation?: string | number;
+  isIndeterminate?: boolean;
 };
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -52,6 +53,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   maxCompleted = 100,
   animateOnRender = false,
   initCompletedOnAnimation = 0,
+  isIndeterminate = false,
   completed,
   margin,
   padding,
@@ -114,16 +116,19 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   const fillerStyles: React.CSSProperties = {
     height: height,
-    width: animateOnRender ? initWidth : fillerWidth,
+    width: isIndeterminate ? "100%" : animateOnRender ? initWidth : fillerWidth,
     background: bgColor,
-    transition: `width ${transitionDuration || "1s"} ${
-      transitionTimingFunction || "ease-in-out"
-    }`,
+    transition: isIndeterminate
+      ? "none"
+      : `width ${transitionDuration || "1s"} ${
+          transitionTimingFunction || "ease-in-out"
+        }`,
     borderRadius: "inherit",
     display: "flex",
     alignItems: "center",
     justifyContent:
       labelAlignment !== "outside" && alignment ? alignment : "normal",
+    animation: isIndeterminate ? "indeterminate 1.5s infinite linear" : "none",
   };
 
   const labelStyles: React.CSSProperties = {
@@ -146,10 +151,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const labelStr = customLabel ? customLabel : completedStr;
 
   React.useEffect(() => {
-    if (animateOnRender) {
+    if (animateOnRender && !isIndeterminate) {
       requestAnimationFrame(() => setInitWidth(fillerWidth));
     }
-  }, [fillerWidth, animateOnRender]);
+  }, [fillerWidth, animateOnRender, isIndeterminate]);
 
   return (
     <div
@@ -157,7 +162,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       className={className}
       dir={dir}
       role="progressbar"
-      aria-valuenow={parseFloat(labelStr)}
+      aria-valuenow={isIndeterminate ? undefined : parseFloat(labelStr)}
       aria-valuemin={ariaValuemin}
       aria-valuemax={ariaValuemax}
       aria-valuetext={`${ariaValuetext === null ? labelStr : ariaValuetext}`}
@@ -188,6 +193,24 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
           {labelStr}
         </span>
       )}
+      <style>
+        {`
+          @keyframes indeterminate {
+            0% {
+              width: 30%;
+              transform: translateX(-50%);
+            }
+            50% {
+              width: 30%;
+              transform: translateX(250%);
+            }
+            100% {
+              width: 30%;
+              transform: translateX(-50%);
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
