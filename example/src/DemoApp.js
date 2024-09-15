@@ -12,7 +12,7 @@ const DemoApp = () => {
   return (
     <div className="App">
       <h3>Randomly generated completed value</h3>
-      <ProgressBar completed={completed} />
+      <ProgressBar completed={completed} isIndeterminate />
       <hr />
       <h3>Interactive Generator</h3>
       <CustomizedBar />
