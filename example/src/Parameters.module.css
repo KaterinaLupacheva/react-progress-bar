@@ -1,0 +1,13 @@
+.paramItem {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.paramItem label {
+    margin-right: 10px;
+}
+
+.paramItem button {
+    margin-right: 10px;
+}

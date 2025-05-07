@@ -6,13 +6,19 @@ const DemoApp = () => {
   const [completed, setCompleted] = useState(0);
 
   useEffect(() => {
-    setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000);
+    const interval = setInterval(
+      () => setCompleted(Math.floor(Math.random() * 100) + 1),
+      2000
+    );
+
+    // Cleanup function to clear the interval when component unmounts
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="App">
       <h3>Randomly generated completed value</h3>
-      <ProgressBar completed={completed} isIndeterminate />
+      <ProgressBar completed={completed} />
       <hr />
       <h3>Interactive Generator</h3>
       <CustomizedBar />
