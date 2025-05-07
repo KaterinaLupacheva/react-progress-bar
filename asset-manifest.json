@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-progress-bar/static/css/main.200e05d2.css",
-    "main.js": "/react-progress-bar/static/js/main.cb9d6564.js",
+    "main.css": "/react-progress-bar/static/css/main.3652c4a3.css",
+    "main.js": "/react-progress-bar/static/js/main.c6a1106a.js",
     "index.html": "/react-progress-bar/index.html",
-    "main.200e05d2.css.map": "/react-progress-bar/static/css/main.200e05d2.css.map",
-    "main.cb9d6564.js.map": "/react-progress-bar/static/js/main.cb9d6564.js.map"
+    "main.3652c4a3.css.map": "/react-progress-bar/static/css/main.3652c4a3.css.map",
+    "main.c6a1106a.js.map": "/react-progress-bar/static/js/main.c6a1106a.js.map"
   },
   "entrypoints": [
-    "static/css/main.200e05d2.css",
-    "static/js/main.cb9d6564.js"
+    "static/css/main.3652c4a3.css",
+    "static/js/main.c6a1106a.js"
   ]
 }
