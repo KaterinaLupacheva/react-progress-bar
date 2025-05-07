@@ -1,0 +1,30 @@
+.codeArea {
+   position: relative;
+}
+
+.codeArea button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.codeArea textarea {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.resetButton {
+    margin: 20px;
+    background-color: darkseagreen;
+    font-size: large;
+    padding: 10px;
+}
+
+.codeButton {
+    background-color: cyan;
+    font-size: large;
+    padding: 10px;
+    border-radius: 10px;
+}

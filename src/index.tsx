@@ -36,7 +36,7 @@ export type ProgressBarProps = {
   isIndeterminate?: boolean;
 };
 
-const ProgressBar: React.FC<ProgressBarProps> = ({
+function ProgressBar({
   bgColor = "#6a1b9a",
   height = "20px",
   width = "100%",
@@ -65,7 +65,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   barContainerClassName,
   completedClassName,
   labelClassName,
-}) => {
+}: ProgressBarProps) {
   const getAlignment = (
     alignmentOption: ProgressBarProps["labelAlignment"]
   ) => {
@@ -213,6 +213,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       </style>
     </div>
   );
-};
+}
 
 export default ProgressBar;

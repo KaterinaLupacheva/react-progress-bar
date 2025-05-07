@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChromePicker } from "react-color";
 import useClickOutside from "./useClickOutside.hook";
-import "./parameters.styles.scss";
+import styles from "./Parameters.module.css";
 
 const Parameters = ({
   handleChange,
@@ -34,7 +34,7 @@ const Parameters = ({
 
   return (
     <>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="completed">completed</label>
         <input
           name="completed"
@@ -44,7 +44,7 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="maxCompleted">max completed</label>
         <input
           name="maxCompleted"
@@ -54,7 +54,7 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="customLabel">custom label</label>
         <input
           name="customLabel"
@@ -64,7 +64,7 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <button onClick={() => cpOne.setIsVisible(true)}>
           Choose Bar Color
         </button>
@@ -90,7 +90,7 @@ const Parameters = ({
           }}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="height">height</label>
         <input
           name="height"
@@ -100,7 +100,7 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="width">width</label>
         <input
           name="width"
@@ -110,7 +110,7 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="borderRadius">border radius</label>
         <input
           name="borderRadius"
@@ -120,7 +120,7 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="labelAlignment">label alignment</label>
         <select
           name="labelAlignment"
@@ -134,7 +134,7 @@ const Parameters = ({
           <option value="outside">outside</option>
         </select>
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <button onClick={() => cpThree.setIsVisible(true)}>
           Choose Label Color
         </button>
@@ -156,11 +156,11 @@ const Parameters = ({
           type="text"
           onChange={(event) => {
             handleChange(event);
-            setBaseBgColor(event.target.value);
+            setLabelColor(event.target.value);
           }}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="labelSize">label size</label>
         <input
           name="labelSize"
@@ -170,7 +170,7 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="isLabelVisible">is label visible</label>
         <select
           name="isLabelVisible"
@@ -184,7 +184,7 @@ const Parameters = ({
           <option value={"false"}>false</option>
         </select>
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <button onClick={() => cpTwo.setIsVisible(true)}>
           Choose "non-completed" Bar Color
         </button>
@@ -210,11 +210,11 @@ const Parameters = ({
           }}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="margin">margin</label>
         <input name="margin" id="margin" type="text" onChange={handleChange} />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="padding">padding</label>
         <input
           name="padding"
@@ -223,7 +223,7 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="transitionDuration">transition duration</label>
         <input
           name="transitionDuration"
@@ -232,7 +232,7 @@ const Parameters = ({
           onChange={handleChange}
         />
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="transitionTimingFunction">
           transition timing function
         </label>
@@ -249,7 +249,7 @@ const Parameters = ({
           <option value="ease-out">ease-out</option>
         </select>
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="animateOnRender">animate on render</label>
         <select
           name="animateOnRender"
@@ -263,7 +263,7 @@ const Parameters = ({
           <option value={"false"}>false</option>
         </select>
       </div>
-      <div className="param">
+      <div className={styles.paramItem}>
         <label htmlFor="dir">direction</label>
         <select name="dir" defaultValue="ltr" id="dir" onChange={handleChange}>
           <option value="ltr">ltr</option>

@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 import Parameters from "./Parameters";
 import ProgressBar from "@ramonak/react-progress-bar";
-import "./customizedBar.styles.scss";
+import styles from "./CustomizedBar.module.css";
 
 const CustomizedBar = () => {
   const INITIAL_STATE = {
@@ -72,11 +72,17 @@ const CustomizedBar = () => {
     });
   };
 
-  const copyToClipboard = (e) => {
-    textAreaRef.current.select();
-    document.execCommand("copy");
-    e.target.focus();
-    setCopySuccess("Copied!");
+  const copyToClipboard = async (e) => {
+    try {
+      await navigator.clipboard.writeText(textAreaRef.current.value);
+      setCopySuccess("Copied!");
+    } catch (err) {
+      // Fallback for older browsers
+      textAreaRef.current.select();
+      document.execCommand("copy");
+      e.target.focus();
+      setCopySuccess("Copied!");
+    }
   };
 
   const generateCode = () => {
@@ -137,15 +143,15 @@ const CustomizedBar = () => {
         handleBooleanPropChange={handleBooleanPropChange}
         handleReset={handleReset}
       />
-      <button className="reset-button" onClick={handleReset}>
+      <button className={styles.resetButton} onClick={handleReset}>
         RESET
       </button>
-      <button className="code-button" onClick={generateCode}>
+      <button className={styles.codeButton} onClick={generateCode}>
         Generate Component Code
       </button>
       <div>
         {showCode && (
-          <div className="code-area">
+          <div className={styles.codeArea}>
             <button onClick={copyToClipboard}>{copySuccess}</button>
             <textarea
               ref={textAreaRef}
